@@ -19,7 +19,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * @authors Brody Downs
+ * @authors Brody Downs, Maruf Ahmed
  *
  */
 public class Login extends Application {
