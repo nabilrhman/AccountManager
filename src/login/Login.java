@@ -18,6 +18,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * @author NabilRahman
+ */
 public class Login extends Application {
 
 	private UserAccountManager accountManager;
