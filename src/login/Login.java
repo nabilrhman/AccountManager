@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 
 /**
  * @author NabilRahman
- * @authors Brody Downs
+ * @author Brody Downs
  *
  */
 public class Login extends Application {
