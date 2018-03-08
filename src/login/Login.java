@@ -1,5 +1,7 @@
 package login;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * @author NabilRahman
@@ -26,6 +29,8 @@ import javafx.stage.Stage;
 public class Login extends Application {
 
 	private UserAccountManager accountManager;
+	int failedLoginCount = 0;
+	boolean lockedOut = false;
 
 	private void initUserAccounts() {
 		accountManager = new UserAccountManager();
@@ -73,10 +78,29 @@ public class Login extends Application {
             @Override
             public void handle(ActionEvent e) {
                 actionTarget.setFill(Color.FIREBRICK);
-         	    if(accountManager.doesAccountExist(userTextField.getText(), passwordBox.getText()))
+                if (lockedOut) 
+                {
+                	actionTarget.setText("Too Many Failed Logins\nPlease wait before trying again");
+                }
+                else if(accountManager.doesAccountExist(userTextField.getText(), passwordBox.getText()))
         	    	actionTarget.setText("Login Succeeded!");
-        	    else
-           	    	actionTarget.setText("Login Failed!");       	    	
+        	    else {
+           	    	actionTarget.setText("Login Failed!");
+           	    	if (++failedLoginCount >= 3)
+           	    	{
+           	    		//reset failedLoginCount
+           	    		failedLoginCount = 0;
+           	    		
+           	    		//lock out
+           	    		lockedOut = true;
+           	    		
+           	    		//wait 60 seconds before unlocking
+           	    		new Timeline(new KeyFrame(
+           	    		        Duration.millis(60000),
+           	    		        ae -> lockedOut = false))
+           	    		    .play();
+           	    	}
+        	    }
             }
         });
 
