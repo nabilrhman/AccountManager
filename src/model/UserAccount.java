@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class UserAccount {
 
@@ -8,7 +8,7 @@ public class UserAccount {
     private String password;
     private String firstName; // First name.
     private String lastName; // Last name.
-    private Date dateOfBirth; // Date of birth.
+    private LocalDate birthDate; // Date of birth.
     private String email; // Email.
 
     public UserAccount(String userName, String password) {
@@ -17,13 +17,13 @@ public class UserAccount {
     }
 
     public UserAccount(String userName, String password, String firstName,
-                       String lastName, Date dateOfBirth, String email) {
+                       String lastName, LocalDate dateOfBirth, String email) {
 
         this.userName = userName;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dateOfBirth = dateOfBirth;
+        this.birthDate = dateOfBirth;
         this.email = email;
     }
 
@@ -50,11 +50,11 @@ public class UserAccount {
     /**
      * Sets user's date of birth.
      *
-     * @param dateOfBirth
+     * @param birthDate
      * @author Edgar Sosa
      */
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     /**
@@ -94,8 +94,8 @@ public class UserAccount {
      * @return User account's date of birth.
      * @author Edgar Sosa
      */
-    public Date getDateOfBirth() {
-        return dateOfBirth;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
     /**

@@ -25,31 +25,36 @@ import validate.InputValidator;
  */
 public class Signup
 {
-
+    private UserAccount newAccount;
     private GridPane gridPaneSignup;
     private InputValidator validator;
-    private boolean isAllInputsValid;
 
-    private final TextField usernameTextField;
-    private final PasswordField passwordField;
-    private final PasswordField confirmPasswordField;
-    private final TextField firstNameTextField;
-    private final TextField lastNameTextField;
-    private final TextField emailTextField;
-    private final DatePicker birthDatePicker;
+    private TextField usernameTextField;
+    private PasswordField passwordField;
+    private PasswordField confirmPasswordField;
+    private TextField firstNameTextField;
+    private TextField lastNameTextField;
+    private TextField emailTextField;
+    private DatePicker birthDatePicker;
 
-    Text usernameValidationText;
-    Text passwordValidationText;
-    Text confirmPasswordValidationText;
-    Text firstNameValidationText;
-    Text lastNameValidationText;
-    Text emailValidationText;
-    Text birthDateValidationText;
+    private Text usernameValidationText;
+    private Text passwordValidationText;
+    private Text confirmPasswordValidationText;
+    private Text firstNameValidationText;
+    private Text lastNameValidationText;
+    private Text emailValidationText;
+    private Text birthDateValidationText;
 
+    private Boolean isValidUsername = false;
+    private Boolean isValidPassword = false;
+    private Boolean isValidConfirmPassword = false;
+    private Boolean isValidFirstName = false;
+    private Boolean isValidLastName = false;
+    private Boolean isValidEmail = false;
+    private Boolean isValidBirthDate = false;
 
     public Signup(Stage currentStage, Scene loginScene, UserAccountManager accountManager)
     {
-        isAllInputsValid = false;
         validator = new InputValidator();
 
         gridPaneSignup = new GridPane();
@@ -146,12 +151,13 @@ public class Signup
             @Override
             public void handle(ActionEvent e)
             {
-                if(isAllInputsValid)
+                if(isAllInputValid())
                 {
+                    newAccount = new UserAccount(usernameTextField.getText(), passwordField.getText(), firstNameTextField.getText(), lastNameTextField.getText(), birthDatePicker.getValue(), emailTextField.getText());
+                    accountManager.addUserAccount(newAccount);
                 }
             }
         });
-
 
 
         //TO-DO: Add backButton functionalities
@@ -168,6 +174,11 @@ public class Signup
 
         addActionToInputControlsWithValidation(usernameTextField, usernameValidationText);
         addActionToInputControlsWithValidation(birthDatePicker, birthDateValidationText);
+        addActionToInputControlsWithValidation(passwordField, passwordValidationText);
+        addActionToInputControlsWithValidation(firstNameTextField, firstNameValidationText);
+        addActionToInputControlsWithValidation(lastNameTextField, lastNameValidationText);
+        addActionToInputControlsWithValidation(emailTextField, emailValidationText);
+        addActionToInputControlsWithValidation(confirmPasswordField, confirmPasswordValidationText);
 
     }
 
@@ -190,11 +201,40 @@ public class Signup
                 {
                     if(controlTextField == passwordField)
                     {
-                        //TO-DO: Add validation for passwordField
+                        if (!passwordField.getText().trim().equalsIgnoreCase(""))
+                        {
+                            if (validator.validatePassword(passwordField.getText()))
+                            {
+                                validationText.setText("Valid");
+                                validationText.setFill(Color.GREEN);
+                                isValidPassword = true;
+                            }
+                            else
+                            {
+                                validationText.setText("Invalid: ");
+                                validationText.setFill(Color.RED);
+                                isValidPassword = false;
+                            }
+                        }
+
                     }
                     else if(controlTextField == confirmPasswordField)
                     {
-                        //TO-DO: Add validation for confirmPasswordField
+                        if (!passwordField.getText().trim().equalsIgnoreCase(""))
+                        {
+                            if (passwordField.getText().equals(confirmPasswordField.getText()) && validator.validatePassword(confirmPasswordField.getText()))
+                            {
+                                validationText.setText("Valid");
+                                validationText.setFill(Color.GREEN);
+                                isValidConfirmPassword = true;
+                            }
+                            else
+                            {
+                                validationText.setText("Invalid: ");
+                                validationText.setFill(Color.RED);
+                                isValidConfirmPassword = false;
+                            }
+                        }
                     }
                 }
             });
@@ -213,11 +253,13 @@ public class Signup
                         {
                             validationText.setText("Valid");
                             validationText.setFill(Color.GREEN);
+                            isValidBirthDate = true;
                         }
                         else
                         {
                             validationText.setText("Invalid: ");
                             validationText.setFill(Color.RED);
+                            isValidBirthDate = false;
                         }
                     }
                 }
@@ -242,22 +284,79 @@ public class Signup
                             {
                                 validationText.setText("Valid");
                                 validationText.setFill(Color.GREEN);
+                                isValidUsername = true;
                             }
                             else
                             {
                                 validationText.setText("Invalid: ");
                                 validationText.setFill(Color.RED);
+                                isValidUsername = false;
                             }
                         }
                     }
                     else if(controlTextField == emailTextField)
                     {
-                        //TO-DO: Add validation for emailTextField
+                        if (!emailTextField.getText().trim().equalsIgnoreCase(""))
+                        {
+                            if (validator.validateEmail(emailTextField.getText()))
+                            {
+                                validationText.setText("Valid");
+                                validationText.setFill(Color.GREEN);
+                                isValidEmail = true;
+                            }
+                            else
+                            {
+                                validationText.setText("Invalid: ");
+                                validationText.setFill(Color.RED);
+                                isValidEmail = false;
+                            }
+                        }
+                    }
+                    else if(controlTextField == firstNameTextField)
+                    {
+                        if (!firstNameTextField.getText().trim().equalsIgnoreCase(""))
+                        {
+                            if (validator.validateUsername(firstNameTextField.getText()))
+                            {
+                                validationText.setText("Valid");
+                                validationText.setFill(Color.GREEN);
+                                isValidFirstName = true;
+                            }
+                            else
+                            {
+                                validationText.setText("Invalid: ");
+                                validationText.setFill(Color.RED);
+                                isValidFirstName = false;
+                            }
+                        }
+                    }
+                    else if(controlTextField == lastNameTextField)
+                    {
+                        if (!firstNameTextField.getText().trim().equalsIgnoreCase(""))
+                        {
+                            if (validator.validateUsername(lastNameTextField.getText()))
+                            {
+                                validationText.setText("Valid");
+                                validationText.setFill(Color.GREEN);
+                                isValidLastName = true;
+                            }
+                            else
+                            {
+                                validationText.setText("Invalid: ");
+                                validationText.setFill(Color.RED);
+                                isValidLastName = false;
+                            }
+                        }
                     }
                 }
             });
         }
 
+    }
+
+    public boolean isAllInputValid()
+    {
+        return (isValidUsername && isValidPassword && isValidConfirmPassword && isValidFirstName && isValidLastName && isValidEmail && isValidBirthDate);
     }
 
 }
