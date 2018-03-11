@@ -13,6 +13,9 @@ public class UserAccountTest extends TestCase {
         userAccount = new UserAccount("admin", "123456");
         assertNotNull(userAccount);
 
+        assertTrue(userAccount.matchUserName("admin"));
+        assertTrue(userAccount.isValidCredential("admin", "123456"));
+
         // Tests setters and getters for firstName.
         userAccount.setFirstName("Random");
         assertTrue(userAccount.getFirstName().equals("Random"));
@@ -32,9 +35,6 @@ public class UserAccountTest extends TestCase {
         // Tests setters and getters for userName.
         userAccount.setUserName("doggo");
         assertTrue(userAccount.getUserName().equals("doggo"));
-
-        assertTrue(userAccount.matchUserName("admin"));
-        assertTrue(userAccount.isValidCredential("admin", "123456"));
     }
 
 }

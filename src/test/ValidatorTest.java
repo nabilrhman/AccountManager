@@ -1,8 +1,12 @@
 package test;
 
 import junit.framework.TestCase;
-import validate.InputValidator;
 
+import validate.InputValidator;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 /**
  * @author Brody Downs
  * 
@@ -65,16 +69,19 @@ public class ValidatorTest extends TestCase {
 		assertTrue(val.validatePassword("GoodPass1!"));
 	}
 	
+	
 	/*
 	 * tests for birthdate
 	 */
-	/*public void testDate() {
+	public void testDate() {
 		
-		assertTrue(val.validateBirthdate("30/04/1992"));
-		assertTrue(val.validateBirthdate("01/01/1970"));
-		assertFalse(val.validateBirthdate("30/13/1995"));
-		assertFalse(val.validateBirthdate("50/01/1990"));
-	}*/
+		
+		
+		assertTrue(val.validateBirthdate(LocalDate.of(1992, 4, 30)));
+		assertTrue(val.validateBirthdate(LocalDate.of(1992, 1, 1)));
+		assertFalse(val.validateBirthdate(LocalDate.of(1800, 4, 30)));
+		assertFalse(val.validateBirthdate(LocalDate.of(2019, 4, 5)));
+	}
 	 
 
 }
