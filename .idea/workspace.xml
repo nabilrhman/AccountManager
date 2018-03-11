@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0be0026-8221-444a-88dc-1bde07ae3003" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/login/Login.java" afterPath="$PROJECT_DIR$/src/login/Login.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/signup/Signup.java" afterPath="$PROJECT_DIR$/src/signup/Signup.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -18,10 +18,13 @@
       <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/login/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+            <state relative-caret-position="357">
+              <caret line="55" column="33" lean-forward="true" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1520766881562" expanded="true" signature="4103:4161" ph="{...}" />
+                <marker date="1520766881562" expanded="true" signature="4103:4171" ph="{...}" />
+                <marker date="1520766881562" expanded="true" signature="4103:4307" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -30,9 +33,12 @@
       <file leaf-file-name="Signup.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/signup/Signup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="128" column="11" lean-forward="true" selection-start-line="128" selection-start-column="11" selection-end-line="128" selection-end-column="11" />
-              <folding />
+            <state relative-caret-position="-1400">
+              <caret line="29" column="43" lean-forward="true" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1520767024588" expanded="false" signature="5334:5349" ph=" { " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -315,7 +321,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5042000" />
+    <option name="totallyTimeSpent" value="5442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -416,6 +422,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520766881562" expanded="true" signature="4103:4161" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4171" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4307" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -442,6 +451,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520766881562" expanded="true" signature="4103:4161" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4171" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4307" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -468,6 +480,9 @@
           <caret line="103" column="5" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="103" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520766881562" expanded="true" signature="4103:4161" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4171" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4307" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -512,6 +527,9 @@
           <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520766881562" expanded="true" signature="4103:4161" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4171" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4307" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -520,7 +538,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-119">
           <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1520767024588" expanded="false" signature="5334:5349" ph=" { " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -530,6 +551,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520766881562" expanded="true" signature="4103:4161" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4171" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4307" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -538,7 +562,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1520767024588" expanded="false" signature="5334:5349" ph=" { " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -582,6 +609,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520766881562" expanded="true" signature="4103:4161" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4171" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4307" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -590,7 +620,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1520767024588" expanded="false" signature="5334:5349" ph=" { " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -634,6 +667,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520766881562" expanded="true" signature="4103:4161" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4171" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4307" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -660,6 +696,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520766881562" expanded="true" signature="4103:4161" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4171" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4307" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -686,6 +725,9 @@
           <caret line="103" column="5" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="103" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520766881562" expanded="true" signature="4103:4161" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4171" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4307" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -733,19 +775,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/login/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+        <state relative-caret-position="357">
+          <caret line="55" column="33" lean-forward="true" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520766881562" expanded="true" signature="4103:4161" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4171" ph="{...}" />
+            <marker date="1520766881562" expanded="true" signature="4103:4307" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/signup/Signup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="128" column="11" lean-forward="true" selection-start-line="128" selection-start-column="11" selection-end-line="128" selection-end-column="11" />
-          <folding />
+        <state relative-caret-position="-1400">
+          <caret line="29" column="43" lean-forward="true" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1520767024588" expanded="false" signature="5334:5349" ph=" { " />
+          </folding>
         </state>
       </provider>
     </entry>

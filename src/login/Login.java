@@ -1,5 +1,7 @@
 package login;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import signup.Signup;
 
 public class Login extends Application {
@@ -25,6 +28,9 @@ public class Login extends Application {
     private Scene scene;
     private final int SCENE_WIDTH = 800;
     private final int SCENE_HEIGHT = 600;
+    
+    private int failedLoginCount = 0;
+    boolean lockedOut = false;
 
     private void initUserAccounts() {
         accountManager = new UserAccountManager();
@@ -75,23 +81,44 @@ public class Login extends Application {
         grid.add(actionTarget, 1, 6);
 
         signinButton.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
+        	@Override
             public void handle(ActionEvent e) {
                 actionTarget.setFill(Color.FIREBRICK);
-                if(accountManager.doesAccountExist(userTextField.getText(), passwordBox.getText()))
-                    actionTarget.setText("Login Succeeded!");
-                else
-                    actionTarget.setText("Login Failed!");
+                if (lockedOut) 
+                {
+                	actionTarget.setText("Too Many Failed Logins\nPlease wait before trying again");
+                }
+                else if(accountManager.doesAccountExist(userTextField.getText(), passwordBox.getText()))
+                {
+        	    	actionTarget.setText("Login Succeeded!");
+                }
+        	    else
+        	    {
+           	    	actionTarget.setText("Login Failed!");
+           	    	if (++failedLoginCount >= 3)
+           	    	{
+           	    		//reset failedLoginCount
+           	    		failedLoginCount = 0;
+           	    		
+           	    		//lock out
+           	    		lockedOut = true;
+           	    		
+           	    		//wait 60 seconds before unlocking
+           	    		new Timeline(new KeyFrame(
+           	    		        Duration.millis(60000),
+           	    		        ae -> lockedOut = false))
+           	    		    .play();
+           	    	}
+        	    }
             }
         });
 
         registerButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Signup signup = new Signup();
-                scene = new Scene(signup.getGrid(), SCENE_WIDTH, SCENE_HEIGHT);
-                primaryStage.setScene(scene);
+                Signup signup = new Signup(primaryStage, scene, accountManager);
+                Scene signupscene = new Scene(signup.getGrid(), SCENE_WIDTH, SCENE_HEIGHT);
+                primaryStage.setScene(signupscene);
                 primaryStage.show();
             }
         });

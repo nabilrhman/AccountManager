@@ -22,14 +22,13 @@ public class Signup
     private GridPane gridPaneSignup;
     private boolean isAllInputsValid;
 
-    final TextField usernameTextField;
-    final PasswordField passwordField;
-    final PasswordField confirmPasswordField;
-    final TextField firstNameTextField;
-    final TextField lastNameTextField;
-    final TextField emailTextField;
-    final DatePicker birthDatePicker;
-
+    private final TextField usernameTextField;
+    private final PasswordField passwordField;
+    private final PasswordField confirmPasswordField;
+    private final TextField firstNameTextField;
+    private final TextField lastNameTextField;
+    private final TextField emailTextField;
+    private final DatePicker birthDatePicker;
 
     public Signup()
     {
@@ -124,6 +123,7 @@ public class Signup
             @Override
             public void handle(ActionEvent e)
             {
+
 
             }
         });
