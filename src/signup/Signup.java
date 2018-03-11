@@ -36,6 +36,7 @@ public class Signup
     private TextField lastNameTextField;
     private TextField emailTextField;
     private DatePicker birthDatePicker;
+    private Button signUpButton;
 
     private Text usernameValidationText;
     private Text passwordValidationText;
@@ -126,12 +127,13 @@ public class Signup
         birthDateValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
         birthDateValidationText.setFill(Color.RED);
         birthDatePicker = new DatePicker();
-        birthDatePicker.setPrefWidth(200);
+        birthDatePicker.setPrefWidth(350);
         gridPaneSignup.add(birthDateLabel, 0, 13);
         gridPaneSignup.add(birthDatePicker, 1, 13);
         gridPaneSignup.add(birthDateValidationText, 1, 14);
 
-        Button signUpButton = new Button("Sign Up");
+        signUpButton = new Button("Sign Up");
+        signUpButton.setDisable(true);
         HBox hBoxSignUpButton = new HBox(10);
         hBoxSignUpButton.setAlignment(Pos.BOTTOM_RIGHT);
         hBoxSignUpButton.getChildren().add(signUpButton);
@@ -211,10 +213,11 @@ public class Signup
                             }
                             else
                             {
-                                validationText.setText("Invalid: ");
+                                validationText.setText("Must contain 3 chars: 1 lowercase, 1 uppercase, and 1 number");
                                 validationText.setFill(Color.RED);
                                 isValidPassword = false;
                             }
+
                         }
 
                     }
@@ -230,12 +233,14 @@ public class Signup
                             }
                             else
                             {
-                                validationText.setText("Invalid: ");
+                                validationText.setText("Passwords do not match");
                                 validationText.setFill(Color.RED);
                                 isValidConfirmPassword = false;
                             }
                         }
+
                     }
+                    checkSignupButtonStatus();
                 }
             });
         }
@@ -257,13 +262,15 @@ public class Signup
                         }
                         else
                         {
-                            validationText.setText("Invalid: ");
+                            validationText.setText("Birthdate must be between 1900 and 2018");
                             validationText.setFill(Color.RED);
                             isValidBirthDate = false;
                         }
                     }
+                    checkSignupButtonStatus();
                 }
             });
+
         }
         else
         {
@@ -288,7 +295,7 @@ public class Signup
                             }
                             else
                             {
-                                validationText.setText("Invalid: ");
+                                validationText.setText("At least 3 chars: alphanumeric, numbers, underscores, and dashes");
                                 validationText.setFill(Color.RED);
                                 isValidUsername = false;
                             }
@@ -306,7 +313,7 @@ public class Signup
                             }
                             else
                             {
-                                validationText.setText("Invalid: ");
+                                validationText.setText("Invalid email format");
                                 validationText.setFill(Color.RED);
                                 isValidEmail = false;
                             }
@@ -316,7 +323,7 @@ public class Signup
                     {
                         if (!firstNameTextField.getText().trim().equalsIgnoreCase(""))
                         {
-                            if (validator.validateUsername(firstNameTextField.getText()))
+                            if (validator.validateName(firstNameTextField.getText()))
                             {
                                 validationText.setText("Valid");
                                 validationText.setFill(Color.GREEN);
@@ -324,7 +331,7 @@ public class Signup
                             }
                             else
                             {
-                                validationText.setText("Invalid: ");
+                                validationText.setText("No numbers");
                                 validationText.setFill(Color.RED);
                                 isValidFirstName = false;
                             }
@@ -334,7 +341,7 @@ public class Signup
                     {
                         if (!firstNameTextField.getText().trim().equalsIgnoreCase(""))
                         {
-                            if (validator.validateUsername(lastNameTextField.getText()))
+                            if (validator.validateName(lastNameTextField.getText()))
                             {
                                 validationText.setText("Valid");
                                 validationText.setFill(Color.GREEN);
@@ -342,12 +349,14 @@ public class Signup
                             }
                             else
                             {
-                                validationText.setText("Invalid: ");
+                                validationText.setText("No numbers");
                                 validationText.setFill(Color.RED);
                                 isValidLastName = false;
                             }
                         }
+                        checkSignupButtonStatus();
                     }
+                    checkSignupButtonStatus();
                 }
             });
         }
@@ -357,6 +366,14 @@ public class Signup
     public boolean isAllInputValid()
     {
         return (isValidUsername && isValidPassword && isValidConfirmPassword && isValidFirstName && isValidLastName && isValidEmail && isValidBirthDate);
+    }
+
+    public void checkSignupButtonStatus()
+    {
+        if(isAllInputValid())
+            signUpButton.setDisable(false);
+        else
+            signUpButton.setDisable(true);
     }
 
 }
