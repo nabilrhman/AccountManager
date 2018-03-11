@@ -146,10 +146,12 @@ public class Login extends Application
         primaryStage.show();
     }
 
+    /*
     @Override
     public void stop() throws IOException
     {
         accountManager.saveJSON(new File("data/user_accounts.json"));
     }
+    */
 
 }
