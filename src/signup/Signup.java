@@ -153,7 +153,6 @@ public class Signup
         //TO-DO: Add backButton functionalities
         goBackButton.setOnAction(new EventHandler<ActionEvent>()
         {
-
             @Override
             public void handle(ActionEvent e)
             {
@@ -186,6 +185,7 @@ public class Signup
                     if(controlTextField == usernameTextField)
                     {
                         // FIX-ME: Fix the validation
+                        System.out.println(va)
                         validationText.setText("Changed");
                         Random rand = new Random();
                         validationText.setFill(Color.color(Math.random(), Math.random(), Math.random()));

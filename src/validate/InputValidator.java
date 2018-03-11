@@ -1,5 +1,7 @@
 package validate;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,7 +17,7 @@ public class InputValidator
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     //format is DD/MM/YYYY, might need to be MM/DD/YYYY
-    private static final String DATE_PATTERN = "(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)";
+    //private static final String DATE_PATTERN = "(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)";
     private static final String NAME_PATTERN = "[^0-9]{1,20}";
 
     private Pattern pattern;
@@ -62,17 +64,15 @@ public class InputValidator
     }
 
     /**
-     * validate date with regular expression
-     *
-     * @param date string in DD/MM/YYYY
-     * @return true if valid, false if not
+     * Validate birthdate with LocalDate
+     * @param date the birthdate for validation
+     * @return true valid birthdate, false invalid birthdate
      */
-    public boolean validateBirthdate(String date)
+    public boolean validateBirthdate(LocalDate date)
     {
-        pattern = Pattern.compile(DATE_PATTERN);
-        matcher = pattern.matcher(date);
-        return matcher.matches();
-
+        LocalDate start = LocalDate.of(1900 , 1 , 1);
+        LocalDate stop = LocalDate.now(ZoneId.of( "America/Montreal" ));
+        return (!date.isBefore(start)) && (date.isBefore(stop));
     }
 
     /**
