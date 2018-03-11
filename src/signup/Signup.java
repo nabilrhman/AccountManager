@@ -22,6 +22,7 @@ import validate.InputValidator;
 /**
  * @author nabilrahman
  * @author marufahmed
+ * @author rogelio
  */
 public class Signup
 {

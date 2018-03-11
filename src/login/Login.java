@@ -55,7 +55,7 @@ public class Login extends Application
     {
         initUserAccounts();
 
-        primaryStage.setTitle("Login");
+        primaryStage.setTitle("Account Manager");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
@@ -102,15 +102,17 @@ public class Login extends Application
                 actionTarget.setFill(Color.FIREBRICK);
                 if (lockedOut)
                 {
-                    actionTarget.setText("Too Many Failed Logins\nPlease wait before trying again");
+                    actionTarget.setText("TOO MANY FAILED LOGINS\nPlease wait before trying again");
                 }
                 else if (accountManager.doesAccountExist(userTextField.getText(), passwordBox.getText()))
                 {
-                    actionTarget.setText("Login Succeeded!");
+                    actionTarget.setFill(Color.GREEN);
+                    actionTarget.setText("LOGIN SUCCEEDED");
                 }
                 else
                 {
-                    actionTarget.setText("Login Failed!");
+                    actionTarget.setFill(Color.RED);
+                    actionTarget.setText("LOGIN FAILED");
                     if (++failedLoginCount >= 3)
                     {
                         //reset failedLoginCount
