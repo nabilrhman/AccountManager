@@ -8,22 +8,34 @@ public class UserAccount {
     private String password;
     private String firstName; // First name.
     private String lastName; // Last name.
-    private Date dateOfBirth; // Date of birth.
     private String email; // Email.
+    private Date birthDate; // Date of birth.
 
     public UserAccount(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }
 
+    /**
+     * Secondary constructor which allows the use of a user name, password,
+     * first name, last name, birth date, and email.
+     *
+     * @param userName
+     * @param password
+     * @param firstName
+     * @param lastName
+     * @param birthDate
+     * @param email
+     * @author Edgar Sosa
+     */
     public UserAccount(String userName, String password, String firstName,
-                       String lastName, Date dateOfBirth, String email) {
+                       String lastName, Date birthDate, String email) {
 
         this.userName = userName;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dateOfBirth = dateOfBirth;
+        this.birthDate = birthDate;
         this.email = email;
     }
 
@@ -38,36 +50,6 @@ public class UserAccount {
     }
 
     /**
-     * Sets user's last name.
-     *
-     * @param lastName - last name
-     * @author Edgar Sosa
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    /**
-     * Sets user's date of birth.
-     *
-     * @param dateOfBirth
-     * @author Edgar Sosa
-     */
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    /**
-     * Sets the email of the user.
-     *
-     * @param email
-     * @author Edgar Sosa
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
      * Gets user's first name.
      *
      * @return User account's first name.
@@ -76,6 +58,16 @@ public class UserAccount {
     public String getFirstName() {
 
         return firstName;
+    }
+
+    /**
+     * Sets user's last name.
+     *
+     * @param lastName - last name
+     * @author Edgar Sosa
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     /**
@@ -89,13 +81,33 @@ public class UserAccount {
     }
 
     /**
+     * Sets user's date of birth.
+     *
+     * @param dateOfBirth
+     * @author Edgar Sosa
+     */
+    public void setBirthDate(Date dateOfBirth) {
+        this.birthDate = dateOfBirth;
+    }
+
+    /**
      * Gets the user account's date of birth.
      *
      * @return User account's date of birth.
      * @author Edgar Sosa
      */
-    public Date getDateOfBirth() {
-        return dateOfBirth;
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    /**
+     * Sets the email of the user.
+     *
+     * @param email
+     * @author Edgar Sosa
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     /**
