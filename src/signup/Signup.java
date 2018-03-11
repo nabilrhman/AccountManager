@@ -19,9 +19,9 @@ import javafx.stage.Stage;
 import login.UserAccountManager;
 
 public class Signup {
-
+	
     private GridPane gridSignup;
-    public Signup()
+    public Signup(Stage primaryStage, Scene loginScene, UserAccountManager uam)
     {
 
         gridSignup = new GridPane();
@@ -91,7 +91,10 @@ public class Signup {
 
             @Override
             public void handle(ActionEvent e) {
-
+            	//TO-DO: verify fields, add account to uam
+            	
+            	//how to return to login
+            	primaryStage.setScene(loginScene);
             }
         });
 
