@@ -1,105 +1,155 @@
 package signup;
 
-import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import javafx.stage.Stage;
-import login.UserAccountManager;
 
-public class Signup {
+import java.util.Random;
 
-    private GridPane gridSignup;
+public class Signup
+{
+
+    private GridPane gridPaneSignup;
+    private boolean isAllInputsValid;
+
+    final TextField usernameTextField;
+    final PasswordField passwordField;
+    final PasswordField confirmPasswordField;
+    final TextField firstNameTextField;
+    final TextField lastNameTextField;
+    final TextField emailTextField;
+    final DatePicker birthDatePicker;
+
+
     public Signup()
     {
+        isAllInputsValid = false;
 
-        gridSignup = new GridPane();
-        gridSignup.setAlignment(Pos.CENTER);
-        gridSignup.setHgap(10);
-        gridSignup.setVgap(10);
-        gridSignup.setPadding(new Insets(25, 25, 25, 25));
+        gridPaneSignup = new GridPane();
+        gridPaneSignup.setAlignment(Pos.CENTER);
+        gridPaneSignup.setHgap(10);
+        gridPaneSignup.setVgap(10);
+        gridPaneSignup.setPadding(new Insets(25, 25, 25, 25));
 
         Text sceneTitle = new Text("SIGN UP");
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        gridSignup.add(sceneTitle, 0, 0, 2, 1);
+        gridPaneSignup.add(sceneTitle, 0, 0, 2, 1);
 
-        Label userName = new Label("User Name:");
-        gridSignup.add(userName, 0, 1);
-
-        final TextField userTextField = new TextField();
-        Text usernameValidationText = new Text("");
-        gridSignup.add(userTextField, 1, 1);
-        gridSignup.add(usernameValidationText, 1, 2);
+        Label username = new Label("User Name:");
+        usernameTextField = new TextField();
+        Text usernameValidationText = new Text("Invalid: ");
+        usernameValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
+        usernameValidationText.setFill(Color.RED);
+        gridPaneSignup.add(username, 0, 1);
+        gridPaneSignup.add(usernameTextField, 1, 1);
+        gridPaneSignup.add(usernameValidationText, 1, 2);
 
         Label passwordLabel = new Label("Password:");
-        gridSignup.add(passwordLabel, 0, 2);
+        passwordField = new PasswordField();
+        Text passwordValidationText = new Text("Invalid: ");
+        passwordValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
+        passwordValidationText.setFill(Color.RED);
+        gridPaneSignup.add(passwordLabel, 0, 3);
+        gridPaneSignup.add(passwordField, 1, 3);
+        gridPaneSignup.add(passwordValidationText, 1, 4);
 
-        final PasswordField passwordBox = new PasswordField();
-        Text passwordValidationText = new Text("");
-        gridSignup.add(passwordBox, 1, 3);
-        gridSignup.add(passwordValidationText, 1, 4);
+        Label confirmPasswordLabel = new Label("Confirm password:");
+        confirmPasswordField = new PasswordField();
+        Text confirmPasswordValidationText = new Text("Invalid: ");
+        confirmPasswordValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
+        confirmPasswordValidationText.setFill(Color.RED);
+        gridPaneSignup.add(confirmPasswordLabel, 0, 5);
+        gridPaneSignup.add(confirmPasswordField, 1, 5);
+        gridPaneSignup.add(confirmPasswordValidationText, 1, 6);
 
-        Label FirstNameLabel = new Label( "First Name:");
-        gridSignup.add(FirstNameLabel, 0, 3);
+        Label firstNameLabel = new Label("First Name:");
+        firstNameTextField = new TextField();
+        Text firstNameValidationText = new Text("Invalid: ");
+        firstNameValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
+        firstNameValidationText.setFill(Color.RED);
+        gridPaneSignup.add(firstNameLabel, 0, 7);
+        gridPaneSignup.add(firstNameTextField, 1, 7);
+        gridPaneSignup.add(firstNameValidationText, 1, 8);
 
-        final TextField FirstNameTextField = new TextField();
-        gridSignup.add(FirstNameTextField, 1, 3);
+        Label lastNameLabel = new Label("Last Name:");
+        Text lastNameValidationText = new Text("Invalid: ");
+        lastNameValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
+        lastNameValidationText.setFill(Color.RED);
+        lastNameTextField = new TextField();
+        gridPaneSignup.add(lastNameLabel, 0, 9);
+        gridPaneSignup.add(lastNameTextField, 1, 9);
+        gridPaneSignup.add(lastNameValidationText, 1, 10);
 
-        Label LastNameLabel = new Label( "Last Name:");
-        gridSignup.add(LastNameLabel, 0, 4);
+        Label emailLabel = new Label("Email:");
+        Text emailValidationText = new Text("Invalid: ");
+        emailValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
+        emailValidationText.setFill(Color.RED);
+        emailTextField = new TextField();
+        gridPaneSignup.add(emailLabel, 0, 11);
+        gridPaneSignup.add(emailTextField, 1, 11);
+        gridPaneSignup.add(emailValidationText, 1, 12);
 
-        final TextField LastNameTextField = new TextField();
-        gridSignup.add(LastNameTextField, 1, 4);
-
-        Label EmailLabel = new Label( "Email:");
-        gridSignup.add(EmailLabel, 0, 5);
-
-        final TextField EmailTextField = new TextField();
-        gridSignup.add(EmailTextField, 1, 5);
-
-        Label DateLabel = new Label( "Birth Date:");
-        gridSignup.add(DateLabel, 0, 6);
-
-        //final TextField DateTextField = new TextField();
-        //gridSignup.add(DateTextField, 1, 6);
-
-        final DatePicker birthDatePicker = new DatePicker();
+        Label birthDateLabel = new Label("Birth Date:");
+        Text birthDateValidationText = new Text("Invalid: ");
+        birthDateValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
+        birthDateValidationText.setFill(Color.RED);
+        birthDatePicker = new DatePicker();
         birthDatePicker.setPrefWidth(200);
-        gridSignup.add(birthDatePicker, 1, 6);
+        gridPaneSignup.add(birthDateLabel, 0, 13);
+        gridPaneSignup.add(birthDatePicker, 1, 13);
+        gridPaneSignup.add(birthDateValidationText, 1, 14);
 
-        Button signinButton = new Button("Sign Up");
-        HBox hbButton = new HBox(10);
-        hbButton.setAlignment(Pos.BOTTOM_RIGHT);
-        hbButton.getChildren().add(signinButton);
-        gridSignup.add(hbButton, 1, 8);
+        Button signUpButton = new Button("Sign Up");
+        HBox hBoxSignUpButton = new HBox(10);
+        hBoxSignUpButton.setAlignment(Pos.BOTTOM_RIGHT);
+        hBoxSignUpButton.getChildren().add(signUpButton);
+        gridPaneSignup.add(hBoxSignUpButton, 1, 15);
 
         final Text actionTarget = new Text();
-        gridSignup.add(actionTarget, 1, 9);
+        gridPaneSignup.add(actionTarget, 1, 16);
 
-        signinButton.setOnAction(new EventHandler<ActionEvent>() {
+        signUpButton.setOnAction(new EventHandler<ActionEvent>()
+        {
 
             @Override
-            public void handle(ActionEvent e) {
+            public void handle(ActionEvent e)
+            {
 
             }
         });
+
+        addActionToTextFieldsWithValidation(usernameTextField, usernameValidationText);
 
     }
 
     public GridPane getGrid()
     {
-        return gridSignup;
+        return gridPaneSignup;
+    }
+
+    public void addActionToTextFieldsWithValidation(TextField textField, Text validationText)
+    {
+        textField.textProperty().addListener(new ChangeListener<String>()
+        {
+            @Override
+            public void changed(ObservableValue<? extends String> observable,
+                                String oldValue, String newValue)
+            {
+                validationText.setText("Changed");
+                Random rand = new Random();
+                validationText.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+            }
+        });
     }
 
 }
