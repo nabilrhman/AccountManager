@@ -37,6 +37,15 @@ public class Signup
     private final TextField emailTextField;
     private final DatePicker birthDatePicker;
 
+    Text usernameValidationText;
+    Text passwordValidationText;
+    Text confirmPasswordValidationText;
+    Text firstNameValidationText;
+    Text lastNameValidationText;
+    Text emailValidationText;
+    Text birthDateValidationText;
+
+
     public Signup(Stage currentStage, Scene loginScene, UserAccountManager accountManager)
     {
         isAllInputsValid = false;
@@ -53,7 +62,7 @@ public class Signup
 
         Label username = new Label("User Name:");
         usernameTextField = new TextField();
-        Text usernameValidationText = new Text("Invalid: ");
+        usernameValidationText = new Text("Invalid: ");
         usernameValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
         usernameValidationText.setFill(Color.RED);
         gridPaneSignup.add(username, 0, 1);
@@ -62,7 +71,7 @@ public class Signup
 
         Label passwordLabel = new Label("Password:");
         passwordField = new PasswordField();
-        Text passwordValidationText = new Text("Invalid: ");
+        passwordValidationText = new Text("Invalid: ");
         passwordValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
         passwordValidationText.setFill(Color.RED);
         gridPaneSignup.add(passwordLabel, 0, 3);
@@ -71,7 +80,7 @@ public class Signup
 
         Label confirmPasswordLabel = new Label("Confirm password:");
         confirmPasswordField = new PasswordField();
-        Text confirmPasswordValidationText = new Text("Invalid: ");
+        confirmPasswordValidationText = new Text("Invalid: ");
         confirmPasswordValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
         confirmPasswordValidationText.setFill(Color.RED);
         gridPaneSignup.add(confirmPasswordLabel, 0, 5);
@@ -80,7 +89,7 @@ public class Signup
 
         Label firstNameLabel = new Label("First Name:");
         firstNameTextField = new TextField();
-        Text firstNameValidationText = new Text("Invalid: ");
+        firstNameValidationText = new Text("Invalid: ");
         firstNameValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
         firstNameValidationText.setFill(Color.RED);
         gridPaneSignup.add(firstNameLabel, 0, 7);
@@ -88,7 +97,7 @@ public class Signup
         gridPaneSignup.add(firstNameValidationText, 1, 8);
 
         Label lastNameLabel = new Label("Last Name:");
-        Text lastNameValidationText = new Text("Invalid: ");
+        lastNameValidationText = new Text("Invalid: ");
         lastNameValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
         lastNameValidationText.setFill(Color.RED);
         lastNameTextField = new TextField();
@@ -97,7 +106,7 @@ public class Signup
         gridPaneSignup.add(lastNameValidationText, 1, 10);
 
         Label emailLabel = new Label("Email:");
-        Text emailValidationText = new Text("Invalid: ");
+        emailValidationText = new Text("Invalid: ");
         emailValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
         emailValidationText.setFill(Color.RED);
         emailTextField = new TextField();
@@ -106,7 +115,7 @@ public class Signup
         gridPaneSignup.add(emailValidationText, 1, 12);
 
         Label birthDateLabel = new Label("Birth Date:");
-        Text birthDateValidationText = new Text("Invalid: ");
+        birthDateValidationText = new Text("Invalid: ");
         birthDateValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
         birthDateValidationText.setFill(Color.RED);
         birthDatePicker = new DatePicker();
@@ -163,19 +172,56 @@ public class Signup
         return gridPaneSignup;
     }
 
-    public void addActionToTextFieldsWithValidation(TextField textField, Text validationText)
+    public void addActionToTextFieldsWithValidation(Control control, Text validationText)
     {
-        textField.textProperty().addListener(new ChangeListener<String>()
+        if (validationText != birthDateValidationText || validationText != passwordValidationText || validationText != confirmPasswordValidationText)
         {
-            @Override
-            public void changed(ObservableValue<? extends String> observable,
-                                String oldValue, String newValue)
+            TextField controlTextField = (TextField) control;
+            controlTextField.textProperty().addListener(new ChangeListener<String>()
             {
-                validationText.setText("Changed");
-                Random rand = new Random();
-                validationText.setFill(Color.color(Math.random(), Math.random(), Math.random()));
-            }
-        });
+                @Override
+                public void changed(ObservableValue<? extends String> observable,
+                                    String oldValue, String newValue)
+                {
+                    if(controlTextField == usernameTextField)
+                    {
+                        // FIX-ME: Fix the validation
+                        validationText.setText("Changed");
+                        Random rand = new Random();
+                        validationText.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+                    }
+                    else if(controlTextField == emailTextField)
+                    {
+                        //TO-DO: Add validation for emailTextField
+                    }
+                }
+            });
+        }
+        else if(validationText == passwordValidationText || validationText == confirmPasswordValidationText)
+        {
+            PasswordField controlTextField = (PasswordField) control;
+            controlTextField.textProperty().addListener(new ChangeListener<String>()
+            {
+                @Override
+                public void changed(ObservableValue<? extends String> observable,
+                                    String oldValue, String newValue)
+                {
+                    if(controlTextField == passwordField)
+                    {
+                        //TO-DO: Add validation for passwordField
+                    }
+                    else if(controlTextField == confirmPasswordField)
+                    {
+                        //TO-DO: Add validation for confirmPasswordField
+                    }
+                }
+            });
+        }
+        else if(validationText == birthDateValidationText)
+        {
+            //TO-DO: Add validation for birthDateicker
+        }
+
     }
 
 }
