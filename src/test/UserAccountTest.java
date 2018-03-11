@@ -3,7 +3,7 @@ package test;
 
 
 import junit.framework.TestCase;
-import login.UserAccount;
+import model.UserAccount;
 
 public class UserAccountTest extends TestCase
 {

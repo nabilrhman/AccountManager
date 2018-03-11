@@ -2,7 +2,7 @@ package test;
 
 import junit.framework.TestCase;
 
-import login.UserAccountManager;
+import model.UserAccountManager;
 
 
 public class UserAccountManagerTest extends TestCase {

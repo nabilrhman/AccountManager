@@ -20,6 +20,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.UserAccountManager;
 import signup.Signup;
 
 import java.io.File;
@@ -29,23 +30,29 @@ import java.io.IOException;
  * @author nabilrahman
  * @author marufahmed
  */
-public class Login extends Application {
-
-    private UserAccountManager accountManager;
-    private Scene scene;
+public class Login extends Application
+{
     private final int SCENE_WIDTH = 800;
     private final int SCENE_HEIGHT = 600;
-    
-    private int failedLoginCount = 0;
     boolean lockedOut = false;
+    private UserAccountManager accountManager;
+    private Scene scene;
+    private int failedLoginCount = 0;
 
-    private void initUserAccounts() {
+    public static void main(String[] args)
+    {
+        launch(args);
+    }
+
+    private void initUserAccounts()
+    {
         accountManager = new UserAccountManager();
         accountManager.addUserAccount("admin", "123456");
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage)
+    {
         initUserAccounts();
 
         primaryStage.setTitle("Login");
@@ -72,58 +79,62 @@ public class Login extends Application {
         grid.add(passwordBox, 1, 2);
 
         Button signinButton = new Button("Sign in");
-        HBox hbButton = new HBox(10);
-        hbButton.setAlignment(Pos.BOTTOM_RIGHT);
-        hbButton.getChildren().add(signinButton);
-        grid.add(hbButton, 1, 4);
+        HBox hBoxSignInButton = new HBox(10);
+        hBoxSignInButton.setAlignment(Pos.BOTTOM_RIGHT);
+        hBoxSignInButton.getChildren().add(signinButton);
+        grid.add(hBoxSignInButton, 1, 4);
 
         Button registerButton = new Button("Register");
-        HBox hbregisterButton = new HBox(10);
-        hbregisterButton.setAlignment(Pos.BOTTOM_RIGHT);
-        hbregisterButton.getChildren().add(registerButton);
+        HBox hBoxregisterButton = new HBox(10);
+        hBoxregisterButton.setAlignment(Pos.BOTTOM_RIGHT);
+        hBoxregisterButton.getChildren().add(registerButton);
 
-        grid.add(hbregisterButton, 0, 4);
+        grid.add(hBoxregisterButton, 0, 4);
 
         final Text actionTarget = new Text();
         grid.add(actionTarget, 1, 6);
 
-        signinButton.setOnAction(new EventHandler<ActionEvent>() {
-        	@Override
-            public void handle(ActionEvent e) {
+        signinButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
                 actionTarget.setFill(Color.FIREBRICK);
-                if (lockedOut) 
+                if (lockedOut)
                 {
-                	actionTarget.setText("Too Many Failed Logins\nPlease wait before trying again");
+                    actionTarget.setText("Too Many Failed Logins\nPlease wait before trying again");
                 }
-                else if(accountManager.doesAccountExist(userTextField.getText(), passwordBox.getText()))
+                else if (accountManager.doesAccountExist(userTextField.getText(), passwordBox.getText()))
                 {
-        	    	actionTarget.setText("Login Succeeded!");
+                    actionTarget.setText("Login Succeeded!");
                 }
-        	    else
-        	    {
-           	    	actionTarget.setText("Login Failed!");
-           	    	if (++failedLoginCount >= 3)
-           	    	{
-           	    		//reset failedLoginCount
-           	    		failedLoginCount = 0;
-           	    		
-           	    		//lock out
-           	    		lockedOut = true;
-           	    		
-           	    		//wait 60 seconds before unlocking
-           	    		new Timeline(new KeyFrame(
-           	    		        Duration.millis(60000),
-           	    		        ae -> lockedOut = false))
-           	    		    .play();
-           	    	}
-        	    }
+                else
+                {
+                    actionTarget.setText("Login Failed!");
+                    if (++failedLoginCount >= 3)
+                    {
+                        //reset failedLoginCount
+                        failedLoginCount = 0;
+
+                        //lock out
+                        lockedOut = true;
+
+                        //wait 60 seconds before unlocking
+                        new Timeline(new KeyFrame(
+                                Duration.millis(60000),
+                                ae -> lockedOut = false))
+                                .play();
+                    }
+                }
             }
         });
 
-        registerButton.setOnAction(new EventHandler<ActionEvent>() {
+        registerButton.setOnAction(new EventHandler<ActionEvent>()
+        {
             @Override
-            public void handle(ActionEvent event) {
-                Signup signup = new Signup();
+            public void handle(ActionEvent event)
+            {
+                Signup signup = new Signup(primaryStage, scene, accountManager);
                 Scene signupScene = new Scene(signup.getGridPane(), SCENE_WIDTH, SCENE_HEIGHT);
                 primaryStage.setScene(signupScene);
                 primaryStage.show();
@@ -139,10 +150,6 @@ public class Login extends Application {
     public void stop() throws IOException
     {
         accountManager.saveJSON(new File("data/user_accounts.json"));
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 
 }

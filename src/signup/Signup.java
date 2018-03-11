@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -13,6 +14,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import model.UserAccountManager;
 
 import java.util.Random;
 
@@ -34,7 +37,7 @@ public class Signup
     private final TextField emailTextField;
     private final DatePicker birthDatePicker;
 
-    public Signup()
+    public Signup(Stage currentStage, Scene currentScene, UserAccountManager accountManager)
     {
         isAllInputsValid = false;
 
@@ -118,6 +121,8 @@ public class Signup
         hBoxSignUpButton.getChildren().add(signUpButton);
         gridPaneSignup.add(hBoxSignUpButton, 1, 15);
 
+        //TO-DO: Add a button to go back
+
         final Text actionTarget = new Text();
         gridPaneSignup.add(actionTarget, 1, 16);
 
@@ -127,10 +132,25 @@ public class Signup
             @Override
             public void handle(ActionEvent e)
             {
-
-
+                //TO-DO: Verify fields, add account to uam
             }
         });
+
+
+
+        //TO-DO: Add backButton functionalities
+        /*
+        backButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+
+            @Override
+            public void handle(ActionEvent e)
+            {
+                //Return to login
+            }
+        });
+         */
+
 
         addActionToTextFieldsWithValidation(usernameTextField, usernameValidationText);
 
