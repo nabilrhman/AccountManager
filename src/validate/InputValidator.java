@@ -17,7 +17,7 @@ public class InputValidator
     //format is DD/MM/YYYY, might need to be MM/DD/YYYY
     private static final String DATE_PATTERN = "(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[012])/((19|20)\\d\\d)";
     private static final String NAME_PATTERN = "[^0-9]{1,20}";
-    
+
     private Pattern pattern;
     private Matcher matcher;
 
@@ -63,28 +63,30 @@ public class InputValidator
 
     /**
      * validate date with regular expression
+     *
      * @param date string in DD/MM/YYYY
      * @return true if valid, false if not
      */
     public boolean validateBirthdate(String date)
     {
-    	pattern = Pattern.compile(DATE_PATTERN);
-    	matcher = pattern.matcher(date);
-    	return matcher.matches();
-    	
+        pattern = Pattern.compile(DATE_PATTERN);
+        matcher = pattern.matcher(date);
+        return matcher.matches();
+
     }
-    
-	/**
-	 * validate First or Last name with regular expression
-	 * allows anything that doesn't have a number in it
-	 * between 1 to 20 characters
-	 * 
-	 * @param name String to be validated
-	 * @return true if valid, false if not
-	 */
-	public boolean validateFirstLastName(String name) {
-		pattern = Pattern.compile(NAME_PATTERN);
-		matcher = pattern.matcher(name);
-		return matcher.matches();
-	}
+
+    /**
+     * validate First or Last name with regular expression
+     * allows anything that doesn't have a number in it
+     * between 1 to 20 characters
+     *
+     * @param name String to be validated
+     * @return true if valid, false if not
+     */
+    public boolean validateName(String name)
+    {
+        pattern = Pattern.compile(NAME_PATTERN);
+        matcher = pattern.matcher(name);
+        return matcher.matches();
+    }
 }

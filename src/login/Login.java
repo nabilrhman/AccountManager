@@ -22,6 +22,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import signup.Signup;
 
+import java.io.File;
+import java.io.IOException;
+
+/**
+ * @author nabilrahman
+ * @author marufahmed
+ */
 public class Login extends Application {
 
     private UserAccountManager accountManager;
@@ -126,6 +133,12 @@ public class Login extends Application {
         scene = new Scene(grid, SCENE_WIDTH, SCENE_HEIGHT);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    @Override
+    public void stop() throws IOException
+    {
+        accountManager.saveJSON(new File("data/user_accounts.json"));
     }
 
     public static void main(String[] args) {

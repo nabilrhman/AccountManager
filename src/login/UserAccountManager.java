@@ -32,16 +32,16 @@ public class UserAccountManager {
        return false;
     }
 
-    public void saveJSON() throws IOException
+    public void saveJSON(File file) throws IOException
     {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(new File("data/user_accounts.json"), userAccounts);
+        mapper.writeValue(file, userAccounts);
     }
 
-    public void loadJSON(ArrayList<UserAccount> userAccounts) throws IOException
+    public void loadJSON(File file) throws IOException
     {
         ObjectMapper mapper = new ObjectMapper();
-        userAccounts = mapper.readValue(new File("data/user_accounts.json"), userAccounts.getClass());
+        userAccounts = mapper.readValue(file, userAccounts.getClass());
     }
 
 }

@@ -23,11 +23,11 @@ public class ValidatorTest extends TestCase {
 	 */
 	public void testNames () {
 		
-		assertTrue(val.validateFirstLastName("john"));
-		assertFalse(val.validateFirstLastName("john1"));
-		assertTrue(val.validateFirstLastName("Andrés"));
-		assertTrue(val.validateFirstLastName("Pierre-Louis"));
-		assertTrue(val.validateFirstLastName("O'Reilly"));
+		assertTrue(val.validateName("john"));
+		assertFalse(val.validateName("john1"));
+		assertTrue(val.validateName("Andrï¿½s"));
+		assertTrue(val.validateName("Pierre-Louis"));
+		assertTrue(val.validateName("O'Reilly"));
 		
 	}
 	

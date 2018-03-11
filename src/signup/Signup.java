@@ -16,6 +16,10 @@ import javafx.scene.text.Text;
 
 import java.util.Random;
 
+/**
+ * @author nabilrahman
+ * @author marufahmed
+ */
 public class Signup
 {
 
