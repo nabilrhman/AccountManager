@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class UserAccountManager {
 	
@@ -32,6 +32,7 @@ public class UserAccountManager {
        return false;
     }
 
+    /*
     public void saveJSON(File file) throws IOException
     {
         ObjectMapper mapper = new ObjectMapper();
@@ -43,5 +44,6 @@ public class UserAccountManager {
         ObjectMapper mapper = new ObjectMapper();
         userAccounts = mapper.readValue(file, userAccounts.getClass());
     }
+    */
 
 }

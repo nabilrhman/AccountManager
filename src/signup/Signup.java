@@ -37,7 +37,7 @@ public class Signup
     private final TextField emailTextField;
     private final DatePicker birthDatePicker;
 
-    public Signup(Stage currentStage, Scene currentScene, UserAccountManager accountManager)
+    public Signup(Stage currentStage, Scene loginScene, UserAccountManager accountManager)
     {
         isAllInputsValid = false;
 
@@ -121,7 +121,10 @@ public class Signup
         hBoxSignUpButton.getChildren().add(signUpButton);
         gridPaneSignup.add(hBoxSignUpButton, 1, 15);
 
-        //TO-DO: Add a button to go back
+        //button to go back
+        Button goBackButton = new Button("Go Back");
+        gridPaneSignup.add(goBackButton, 0, 15);
+        
 
         final Text actionTarget = new Text();
         gridPaneSignup.add(actionTarget, 1, 16);
@@ -139,17 +142,16 @@ public class Signup
 
 
         //TO-DO: Add backButton functionalities
-        /*
-        backButton.setOnAction(new EventHandler<ActionEvent>()
+        goBackButton.setOnAction(new EventHandler<ActionEvent>()
         {
 
             @Override
             public void handle(ActionEvent e)
             {
-                //Return to login
+                currentStage.setScene(loginScene);
             }
         });
-         */
+         
 
 
         addActionToTextFieldsWithValidation(usernameTextField, usernameValidationText);
