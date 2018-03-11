@@ -116,9 +116,9 @@ public class Login extends Application {
         registerButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Signup signup = new Signup(primaryStage, scene, accountManager);
-                Scene signupscene = new Scene(signup.getGrid(), SCENE_WIDTH, SCENE_HEIGHT);
-                primaryStage.setScene(signupscene);
+                Signup signup = new Signup();
+                Scene signupScene = new Scene(signup.getGridPane(), SCENE_WIDTH, SCENE_HEIGHT);
+                primaryStage.setScene(signupScene);
                 primaryStage.show();
             }
         });

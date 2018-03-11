@@ -1,6 +1,9 @@
 package login;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class UserAccountManager {
 	
@@ -28,4 +31,17 @@ public class UserAccountManager {
     			return true;   
        return false;
     }
+
+    public void saveJSON() throws IOException
+    {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(new File("data/user_accounts.json"), userAccounts);
+    }
+
+    public void loadJSON(ArrayList<UserAccount> userAccounts) throws IOException
+    {
+        ObjectMapper mapper = new ObjectMapper();
+        userAccounts = mapper.readValue(new File("data/user_accounts.json"), userAccounts.getClass());
+    }
+
 }

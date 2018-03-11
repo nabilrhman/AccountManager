@@ -132,7 +132,7 @@ public class Signup
 
     }
 
-    public GridPane getGrid()
+    public GridPane getGridPane()
     {
         return gridPaneSignup;
     }
