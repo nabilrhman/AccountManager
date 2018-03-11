@@ -38,13 +38,17 @@ public class Signup {
         gridSignup.add(userName, 0, 1);
 
         final TextField userTextField = new TextField();
+        Text usernameValidationText = new Text("");
         gridSignup.add(userTextField, 1, 1);
+        gridSignup.add(usernameValidationText, 1, 2);
 
         Label passwordLabel = new Label("Password:");
         gridSignup.add(passwordLabel, 0, 2);
 
         final PasswordField passwordBox = new PasswordField();
-        gridSignup.add(passwordBox, 1, 2);
+        Text passwordValidationText = new Text("");
+        gridSignup.add(passwordBox, 1, 3);
+        gridSignup.add(passwordValidationText, 1, 4);
 
         Label FirstNameLabel = new Label( "First Name:");
         gridSignup.add(FirstNameLabel, 0, 3);
