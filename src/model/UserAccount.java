@@ -9,19 +9,7 @@ public class UserAccount {
     private String firstName; // First name.
     private String lastName; // Last name.
     private Date dateOfBirth; // Date of birth.
-    private String securityQuestion; // Security Question.
     private String email; // Email.
-
-
-    /**
-     * Sets an account's password.
-     *
-     * @param password - password
-     * @author Edgar Sosa
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     /**
      * Sets user's first name.
@@ -51,16 +39,6 @@ public class UserAccount {
      */
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    /**
-     * Sets user's security question.
-     *
-     * @param securityQuestion
-     * @author Edgar Sosa
-     */
-    public void setSecurityQuestion(String securityQuestion) {
-        this.securityQuestion = securityQuestion;
     }
 
     /**
@@ -105,16 +83,6 @@ public class UserAccount {
     }
 
     /**
-     * Gets the user's security question.
-     *
-     * @return User account's security question.
-     * @author Edgar Sosa
-     */
-    public String getSecurityQuestion() {
-        return securityQuestion;
-    }
-
-    /**
      * Gets the user's email.
      *
      * @return User account's email.
@@ -142,7 +110,7 @@ public class UserAccount {
         return password;
     }
 
-    public void setPassworde(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
