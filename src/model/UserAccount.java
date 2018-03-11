@@ -11,6 +11,22 @@ public class UserAccount {
     private Date dateOfBirth; // Date of birth.
     private String email; // Email.
 
+    public UserAccount(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public UserAccount(String userName, String password, String firstName,
+                       String lastName, Date dateOfBirth, String email) {
+
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
+    }
+
     /**
      * Sets user's first name.
      *
@@ -92,11 +108,6 @@ public class UserAccount {
         return email;
     }
 
-
-    public UserAccount(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
 
     public String getUserName() {
         return userName;
