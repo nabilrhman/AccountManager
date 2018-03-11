@@ -15,6 +15,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.UserAccount;
 import model.UserAccountManager;
 import validate.InputValidator;
 
@@ -145,7 +146,9 @@ public class Signup
             @Override
             public void handle(ActionEvent e)
             {
-                //TO-DO: Verify fields, add account to uam
+                if(isAllInputsValid)
+                {
+                }
             }
         });
 
