@@ -26,6 +26,7 @@ import validate.InputValidator;
 public class Signup
 {
     private UserAccount newAccount;
+    UserAccountManager accountManager;
     private GridPane gridPaneSignup;
     private InputValidator validator;
 
@@ -57,6 +58,7 @@ public class Signup
     public Signup(Stage currentStage, Scene loginScene, UserAccountManager accountManager)
     {
         validator = new InputValidator();
+        this.accountManager = accountManager;
 
         gridPaneSignup = new GridPane();
         gridPaneSignup.setAlignment(Pos.CENTER);
@@ -153,11 +155,14 @@ public class Signup
             @Override
             public void handle(ActionEvent e)
             {
-                if(isAllInputValid())
+                if (isAllInputValid())
                 {
                     newAccount = new UserAccount(usernameTextField.getText(), passwordField.getText(), firstNameTextField.getText(), lastNameTextField.getText(), birthDatePicker.getValue(), emailTextField.getText());
                     accountManager.addUserAccount(newAccount);
+                    goBackButton.fire();
                 }
+
+
             }
         });
 
@@ -289,9 +294,18 @@ public class Signup
                         {
                             if (validator.validateUsername(usernameTextField.getText()))
                             {
-                                validationText.setText("Valid");
-                                validationText.setFill(Color.GREEN);
-                                isValidUsername = true;
+                                if(!accountManager.doesUserNameExist(usernameTextField.getText()))
+                                {
+                                    validationText.setText("Valid");
+                                    validationText.setFill(Color.GREEN);
+                                    isValidUsername = true;
+                                }
+                                else
+                                {
+                                    validationText.setText("Username already exists.");
+                                    validationText.setFill(Color.RED);
+                                    isValidUsername = false;
+                                }
                             }
                             else
                             {
