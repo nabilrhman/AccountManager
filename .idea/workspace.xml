@@ -2,6 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0be0026-8221-444a-88dc-1bde07ae3003" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/lib/jackson-annotations-2.9.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/lib/jackson-core-2.9.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/lib/jackson-databind-2.9.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/lib/junit.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.classpath" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/libraries/jackson_annotations_2_9_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/libraries/jackson_core_2_9_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/libraries/jackson_databind_2_9_4.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.project" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/AccountManagerApp.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/AccountManagerApp/test/UserAccountTest.class" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/test/UserAccountTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AccountManagerApp.iml" afterPath="$PROJECT_DIR$/AccountManagerApp.iml" />
@@ -762,15 +779,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1518814825083</updated>
-      <workItem from="1520792760037" duration="7277000" />
+      <workItem from="1520792760037" duration="7301000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20003000" />
+    <option name="totallyTimeSpent" value="20027000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-3" width="1920" height="1172" extended-state="6" />
+    <frame x="0" y="-3" width="1920" height="1172" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
