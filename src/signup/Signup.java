@@ -16,6 +16,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.UserAccountManager;
+import validate.InputValidator;
 
 import java.util.Random;
 
@@ -27,6 +28,7 @@ public class Signup
 {
 
     private GridPane gridPaneSignup;
+    private InputValidator validator;
     private boolean isAllInputsValid;
 
     private final TextField usernameTextField;
@@ -49,6 +51,7 @@ public class Signup
     public Signup(Stage currentStage, Scene loginScene, UserAccountManager accountManager)
     {
         isAllInputsValid = false;
+        validator = new InputValidator();
 
         gridPaneSignup = new GridPane();
         gridPaneSignup.setAlignment(Pos.CENTER);
@@ -62,7 +65,7 @@ public class Signup
 
         Label username = new Label("User Name:");
         usernameTextField = new TextField();
-        usernameValidationText = new Text("Invalid: ");
+        usernameValidationText = new Text(" ");
         usernameValidationText.setFont(Font.font("Tahoma", FontWeight.NORMAL, 10));
         usernameValidationText.setFill(Color.RED);
         gridPaneSignup.add(username, 0, 1);
@@ -185,10 +188,21 @@ public class Signup
                     if(controlTextField == usernameTextField)
                     {
                         // FIX-ME: Fix the validation
-                        System.out.println(va)
-                        validationText.setText("Changed");
-                        Random rand = new Random();
-                        validationText.setFill(Color.color(Math.random(), Math.random(), Math.random()));
+
+                        if (!usernameTextField.getText().trim().equalsIgnoreCase(""))
+                        {
+                            if (validator.validateUsername(usernameTextField.getText()))
+                            {
+                                validationText.setText("Valid");
+                                validationText.setFill(Color.GREEN);
+                            }
+                            else
+                            {
+                                validationText.setText("Invalid: ");
+                                validationText.setFill(Color.RED);
+                            }
+                        }
+
                     }
                     else if(controlTextField == emailTextField)
                     {
