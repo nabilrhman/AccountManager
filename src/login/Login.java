@@ -9,6 +9,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -18,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.UserAccountManager;
@@ -28,6 +30,7 @@ import java.io.IOException;
 
 /**
  * @author nabilrahman
+ * @author brodydowns
  * @author marufahmed
  */
 public class Login extends Application
@@ -61,9 +64,11 @@ public class Login extends Application
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
-
+        
+        
         Text sceneTitle = new Text("WELCOME");
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        
         grid.add(sceneTitle, 0, 0, 2, 1);
 
         Label userName = new Label("Username:");
@@ -90,10 +95,28 @@ public class Login extends Application
         hBoxregisterButton.getChildren().add(registerButton);
 
         grid.add(hBoxregisterButton, 0, 4);
+        
+        //forgot username link
+        Hyperlink forgotUsernameLink = new Hyperlink();
+        forgotUsernameLink.setText("Forgot Username?");
+        HBox hBoxForgotUsernameBox = new HBox(10);
+        hBoxForgotUsernameBox.setAlignment(Pos.BOTTOM_RIGHT);
+        hBoxForgotUsernameBox.getChildren().add(forgotUsernameLink);
+        grid.add(hBoxForgotUsernameBox, 1, 6);
+
+        //forgot password link
+        Hyperlink forgotPasswordLink = new Hyperlink();
+        forgotPasswordLink.setText("Forgot Password?");
+        HBox hBoxForgotPasswordBox = new HBox(10);
+        hBoxForgotPasswordBox.setAlignment(Pos.BOTTOM_RIGHT);
+        hBoxForgotPasswordBox.getChildren().add(forgotPasswordLink);
+        grid.add(hBoxForgotPasswordBox, 1, 7);
+        
 
         final Text actionTarget = new Text();
-        grid.add(actionTarget, 1, 6);
+        grid.add(actionTarget, 1, 8);
 
+        //Sign in action
         signinButton.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
@@ -131,6 +154,7 @@ public class Login extends Application
             }
         });
 
+        //Register action
         registerButton.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
@@ -141,6 +165,28 @@ public class Login extends Application
                 primaryStage.setScene(signupScene);
                 primaryStage.show();
             }
+        });
+        
+        //Forgot username action
+        forgotUsernameLink.setOnAction(new EventHandler<ActionEvent>()
+        {
+        	@Override
+        	public void handle(ActionEvent event)
+        	{
+        		//TODO
+        		
+        	}
+        });
+        
+        //Forgot password action
+        forgotUsernameLink.setOnAction(new EventHandler<ActionEvent>()
+        {
+        	@Override
+        	public void handle(ActionEvent event)
+        	{
+        	//TODO	
+        		
+        	}
         });
 
         scene = new Scene(grid, SCENE_WIDTH, SCENE_HEIGHT);
