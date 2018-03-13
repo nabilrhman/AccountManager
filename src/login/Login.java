@@ -28,6 +28,8 @@ import signup.Signup;
 import java.io.File;
 import java.io.IOException;
 
+import forgotUsername.ForgotUsername;
+
 /**
  * @author nabilrahman
  * @author brodydowns
@@ -174,12 +176,16 @@ public class Login extends Application
         	public void handle(ActionEvent event)
         	{
         		//TODO
+        		ForgotUsername forgotUsername = new ForgotUsername(primaryStage, scene, accountManager);
+        		Scene forgotUsernameScene = new Scene(forgotUsername.getGridPane(), SCENE_WIDTH, SCENE_HEIGHT);
+        		primaryStage.setScene(forgotUsernameScene);
+        		primaryStage.show();
         		
         	}
         });
         
         //Forgot password action
-        forgotUsernameLink.setOnAction(new EventHandler<ActionEvent>()
+        forgotPasswordLink.setOnAction(new EventHandler<ActionEvent>()
         {
         	@Override
         	public void handle(ActionEvent event)
