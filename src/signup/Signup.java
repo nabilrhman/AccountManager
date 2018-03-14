@@ -322,9 +322,20 @@ public class Signup
                         {
                             if (validator.validateEmail(emailTextField.getText()))
                             {
-                                validationText.setText("Valid");
-                                validationText.setFill(Color.GREEN);
-                                isValidEmail = true;
+                            	if(!accountManager.doesEmailExist(emailTextField.getText()))
+                            	{
+                            		validationText.setText("Valid");
+                            		validationText.setFill(Color.GREEN);
+                            		isValidEmail = true;
+                            		
+                            	}
+                            	else
+                            	{
+                                    validationText.setText("Email is already in use.");
+                                    validationText.setFill(Color.RED);
+                                    isValidEmail = false;
+                         
+                            	}
                             }
                             else
                             {

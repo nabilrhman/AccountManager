@@ -136,5 +136,9 @@ public class UserAccount {
     private boolean matchPassword(String password) {
         return password != null && password.equals(this.password);
     }
+    
+    public boolean matchEmail(String email) {
+    	return email != null && email.equals(this.email);
+    }
 
 }

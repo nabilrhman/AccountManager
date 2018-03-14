@@ -35,6 +35,14 @@ public class UserAccountManager {
     			return true;   
        return false;
     }
+    
+    public boolean doesEmailExist(String email) {
+    	for (UserAccount userAccount: userAccounts)
+    		if(userAccount.matchEmail(email))
+    			return true;
+    	return false;
+    
+    }
 
     /*
     public void saveJSON(File file) throws IOException
