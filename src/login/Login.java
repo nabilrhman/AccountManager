@@ -22,11 +22,13 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.UserAccount;
 import model.UserAccountManager;
 import signup.Signup;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 
 import forgotUsername.ForgotUsername;
 
@@ -52,7 +54,7 @@ public class Login extends Application
     private void initUserAccounts()
     {
         accountManager = new UserAccountManager();
-        accountManager.addUserAccount("admin", "123456");
+        accountManager.addUserAccount(new UserAccount("admin", "123456", "admin", "admin", LocalDate.of(1970, 1, 1), "admin@admin.com"));
     }
 
     @Override
