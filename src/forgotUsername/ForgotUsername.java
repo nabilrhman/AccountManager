@@ -28,16 +28,17 @@ public class ForgotUsername {
     private GridPane gridPaneForgotUsername;
     private InputValidator validator;
 
-    private TextField firstNameTextField; // First name text field.
-    private TextField lastNameTextField; // Last name text field.
-    private TextField emailTextField;
-    private DatePicker birthDatePicker;
-    private Button getUsernameButton;
+    public TextField firstNameTextField; // First name text field.
+    public TextField lastNameTextField; // Last name text field.
+    public TextField emailTextField;
+    public DatePicker birthDatePicker;
+    public Button getUsernameButton;
+    public Button goBackButton;
 
-    private Text firstNameValidationText; // First name validation text.
-    private Text lastNameValidationText; // Last name validation text.
-    private Text emailValidationText;
-    private Text birthDateValidationText;
+    public Text firstNameValidationText; // First name validation text.
+    public Text lastNameValidationText; // Last name validation text.
+    public Text emailValidationText;
+    public Text birthDateValidationText;
 
     private Boolean isValidFirstName = false;
     private Boolean isValidLastName = false;
@@ -112,7 +113,7 @@ public class ForgotUsername {
         gridPaneForgotUsername.add(hBoxGetUsernameButton, 1, 15);
 
         //Button to go back.
-        Button goBackButton = new Button("Go Back");
+        goBackButton = new Button("Go Back");
         gridPaneForgotUsername.add(goBackButton, 0, 15);
 
         final Text actionTarget = new Text();

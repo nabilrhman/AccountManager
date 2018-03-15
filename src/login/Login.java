@@ -48,6 +48,9 @@ public class Login extends Application
     private TextField userTextField;
     private PasswordField passwordField;
     private Button signinButton;
+    
+    public Hyperlink forgotUsernameLink;
+    public ForgotUsername forgotUsername;
 
     public static void main(String[] args)
     {
@@ -105,7 +108,7 @@ public class Login extends Application
         grid.add(hBoxregisterButton, 0, 4);
         
         //forgot username link
-        Hyperlink forgotUsernameLink = new Hyperlink();
+        forgotUsernameLink = new Hyperlink();
         forgotUsernameLink.setText("Forgot Username?");
         HBox hBoxForgotUsernameBox = new HBox(10);
         hBoxForgotUsernameBox.setAlignment(Pos.BOTTOM_RIGHT);
@@ -187,7 +190,7 @@ public class Login extends Application
         	public void handle(ActionEvent event)
         	{
         		//TODO
-        		ForgotUsername forgotUsername = new ForgotUsername(primaryStage, scene, accountManager);
+        		forgotUsername = new ForgotUsername(primaryStage, scene, accountManager);
         		Scene forgotUsernameScene = new Scene(forgotUsername.getGridPane(), SCENE_WIDTH, SCENE_HEIGHT);
         		primaryStage.setScene(forgotUsernameScene);
         		primaryStage.show();
