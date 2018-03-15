@@ -2,6 +2,7 @@ package model;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 //import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -44,18 +45,21 @@ public class UserAccountManager {
     
     }
 
-    /*
-    public void saveJSON(File file) throws IOException
+    public UserAccount getUserAccount(String userName, String password)
     {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(file, userAccounts);
+        for(int i = 0; i < userAccounts.size(); i++)
+        {
+            if (userAccounts.get(i).matchUserName(userName) && userAccounts.get(i).matchPassword(password))
+            {
+                return userAccounts.get(i);
+            }
+        }
+        throw new NoSuchElementException("Account not found");
     }
 
-    public void loadJSON(File file) throws IOException
+    public void removeUserAccount(UserAccount account)
     {
-        ObjectMapper mapper = new ObjectMapper();
-        userAccounts = mapper.readValue(file, userAccounts.getClass());
+        userAccounts.remove(account);
     }
-    */
 
 }

@@ -56,8 +56,14 @@ public class Signup
     private Boolean isValidEmail = false;
     private Boolean isValidBirthDate = false;
 
+    private Stage mainStage;
+    private Scene previousScene;
+
     public Signup(Stage currentStage, Scene loginScene, UserAccountManager accountManager)
     {
+        mainStage = currentStage;
+        previousScene = loginScene;
+
         validator = new InputValidator();
         this.accountManager = accountManager;
 
@@ -66,6 +72,12 @@ public class Signup
         gridPaneSignup.setHgap(10);
         gridPaneSignup.setVgap(10);
         gridPaneSignup.setPadding(new Insets(25, 25, 25, 25));
+        addControllersToGridPane(gridPaneSignup);
+
+    }
+
+    public void addControllersToGridPane(GridPane gridPaneSignup)
+    {
 
         Text sceneTitle = new Text("SIGN UP");
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
@@ -145,14 +157,12 @@ public class Signup
         //button to go back
         Button goBackButton = new Button("Go Back");
         gridPaneSignup.add(goBackButton, 0, 15);
-        
 
         final Text actionTarget = new Text();
         gridPaneSignup.add(actionTarget, 1, 16);
 
         signUpButton.setOnAction(new EventHandler<ActionEvent>()
         {
-
             @Override
             public void handle(ActionEvent e)
             {
@@ -162,11 +172,8 @@ public class Signup
                     accountManager.addUserAccount(newAccount);
                     goBackButton.fire();
                 }
-
-
             }
         });
-
 
         //TO-DO: Add backButton functionalities
         goBackButton.setOnAction(new EventHandler<ActionEvent>()
@@ -174,11 +181,9 @@ public class Signup
             @Override
             public void handle(ActionEvent e)
             {
-                currentStage.setScene(loginScene);
+                mainStage.setScene(previousScene);
             }
         });
-         
-
 
         addActionToInputControlsWithValidation(usernameTextField, usernameValidationText);
         addActionToInputControlsWithValidation(birthDatePicker, birthDateValidationText);
@@ -187,7 +192,6 @@ public class Signup
         addActionToInputControlsWithValidation(lastNameTextField, lastNameValidationText);
         addActionToInputControlsWithValidation(emailTextField, emailValidationText);
         addActionToInputControlsWithValidation(confirmPasswordField, confirmPasswordValidationText);
-
     }
 
     public GridPane getGridPane()
@@ -197,7 +201,6 @@ public class Signup
 
     public void addActionToInputControlsWithValidation(Control control, Text validationText)
     {
-
         if(validationText == passwordValidationText || validationText == confirmPasswordValidationText)
         {
             PasswordField controlTextField = (PasswordField) control;
@@ -223,9 +226,7 @@ public class Signup
                                 validationText.setFill(Color.RED);
                                 isValidPassword = false;
                             }
-
                         }
-
                     }
                     else if(controlTextField == confirmPasswordField)
                     {
@@ -244,7 +245,6 @@ public class Signup
                                 isValidConfirmPassword = false;
                             }
                         }
-
                     }
                     checkSignupButtonStatus();
                 }
@@ -276,7 +276,6 @@ public class Signup
                     checkSignupButtonStatus();
                 }
             });
-
         }
         else
         {
@@ -290,7 +289,6 @@ public class Signup
                     if(controlTextField == usernameTextField)
                     {
                         // FIX-ME: Fix the validation
-
                         if (!usernameTextField.getText().trim().equalsIgnoreCase(""))
                         {
                             if (validator.validateUsername(usernameTextField.getText()))
@@ -327,14 +325,12 @@ public class Signup
                             		validationText.setText("Valid");
                             		validationText.setFill(Color.GREEN);
                             		isValidEmail = true;
-                            		
                             	}
                             	else
                             	{
                                     validationText.setText("Email is already in use.");
                                     validationText.setFill(Color.RED);
                                     isValidEmail = false;
-                         
                             	}
                             }
                             else
@@ -365,7 +361,7 @@ public class Signup
                     }
                     else if(controlTextField == lastNameTextField)
                     {
-                        if (!firstNameTextField.getText().trim().equalsIgnoreCase(""))
+                        if (!lastNameTextField.getText().trim().equalsIgnoreCase(""))
                         {
                             if (validator.validateName(lastNameTextField.getText()))
                             {
