@@ -219,7 +219,7 @@ public class Signup
                             }
                             else
                             {
-                                validationText.setText("Must contain 3 chars: 1 lowercase, 1 uppercase, and 1 number");
+                                validationText.setText("Must contain 6 chars: 1 lowercase, 1 uppercase, and 1 number");
                                 validationText.setFill(Color.RED);
                                 isValidPassword = false;
                             }
