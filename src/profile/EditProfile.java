@@ -65,6 +65,7 @@ public class EditProfile
         gridPaneEditProfile.setVgap(10);
         gridPaneEditProfile.setPadding(new Insets(25, 25, 25, 25));
         addControllersToGridPane(gridPaneEditProfile);
+
         currentScene = new Scene(gridPaneEditProfile, SCENE_WIDTH, SCENE_HEIGHT);
         mainStage.setScene(currentScene);
     }
@@ -161,6 +162,7 @@ public class EditProfile
                 }
             }
         });
+
 
         //TO-DO: Add backButton functionalities
         goBackButton.setOnAction(new EventHandler<ActionEvent>()

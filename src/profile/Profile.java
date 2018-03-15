@@ -62,8 +62,8 @@ public class Profile
         Button editProfileButton = new Button("Edit");
         gridPaneProfile.add(editProfileButton, 1, 6);
 
-        Button changePassword = new Button("Change password");
-        gridPaneProfile.add(changePassword, 2, 6);
+        Button changePasswordButton = new Button("Change password");
+        gridPaneProfile.add(changePasswordButton, 2, 6);
 
         //button to go back
         Button goBackButton = new Button("Go Back");
@@ -88,6 +88,15 @@ public class Profile
             public void handle(ActionEvent event)
             {
                 EditProfile editProfile = new EditProfile(currentStage, currentStage.getScene(), accountManager, account);
+            }
+        });
+
+        changePasswordButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent event)
+            {
+                ChangePassword changePassword = new ChangePassword(currentStage, currentStage.getScene(), accountManager, account);
             }
         });
     }

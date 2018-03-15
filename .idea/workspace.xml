@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0be0026-8221-444a-88dc-1bde07ae3003" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/profile/EditProfile.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/profile/Profile.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/profile/ChangePassword.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/AccountManagerApp/.classpath" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.classpath" />
-      <change beforePath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/misc.xml" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/AccountManagerApp/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/login/Login.java" afterPath="$PROJECT_DIR$/src/login/Login.java" />
-      <change beforePath="$PROJECT_DIR$/src/model/UserAccount.java" afterPath="$PROJECT_DIR$/src/model/UserAccount.java" />
-      <change beforePath="$PROJECT_DIR$/src/model/UserAccountManager.java" afterPath="$PROJECT_DIR$/src/model/UserAccountManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/signup/Signup.java" afterPath="$PROJECT_DIR$/src/signup/Signup.java" />
+      <change beforePath="$PROJECT_DIR$/src/profile/EditProfile.java" afterPath="$PROJECT_DIR$/src/profile/EditProfile.java" />
+      <change beforePath="$PROJECT_DIR$/src/profile/Profile.java" afterPath="$PROJECT_DIR$/src/profile/Profile.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Login.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/login/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+            <state relative-caret-position="2379">
+              <caret line="211" column="10" lean-forward="false" selection-start-line="211" selection-start-column="10" selection-end-line="211" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -63,10 +56,9 @@
       <file leaf-file-name="Signup.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/signup/Signup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="361" column="66" lean-forward="true" selection-start-line="361" selection-start-column="66" selection-end-line="361" selection-end-column="66" />
+            <state relative-caret-position="523">
+              <caret line="144" column="8" lean-forward="false" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="42" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#7138#7139#0" expanded="true" />
                 <element signature="e#7203#7204#0" expanded="true" />
               </folding>
@@ -77,39 +69,42 @@
       <file leaf-file-name="Profile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/profile/Profile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-516">
-              <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+            <state relative-caret-position="572">
+              <caret line="98" column="131" lean-forward="true" selection-start-line="98" selection-start-column="131" selection-end-line="98" selection-end-column="131" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2841#2842#0" expanded="true" />
-                <element signature="e#2909#2910#0" expanded="true" />
+                <element signature="e#2853#2854#0" expanded="true" />
+                <element signature="e#2921#2922#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditProfile.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EditProfile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/profile/EditProfile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-57">
-              <caret line="158" column="42" lean-forward="true" selection-start-line="158" selection-start-column="42" selection-end-line="158" selection-end-column="42" />
+            <state relative-caret-position="300">
+              <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6829#6830#0" expanded="true" />
-                <element signature="e#6894#6895#0" expanded="true" />
+                <element signature="e#6831#6832#0" expanded="true" />
+                <element signature="e#6896#6897#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Border.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/javafx-src.zip!/javafx/scene/layout/Border.java">
+      <file leaf-file-name="ChangePassword.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/profile/ChangePassword.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="226" column="11" lean-forward="false" selection-start-line="226" selection-start-column="11" selection-end-line="226" selection-end-column="11" />
+            <state relative-caret-position="640">
+              <caret line="233" column="29" lean-forward="true" selection-start-line="233" selection-start-column="29" selection-end-line="233" selection-end-column="29" />
               <folding>
-                <element signature="e#10000#10001#0" expanded="true" />
-                <element signature="e#10035#10036#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#6056#6057#0" expanded="true" />
+                <element signature="e#6121#6122#0" expanded="true" />
+                <element signature="e#6486#6487#0" expanded="true" />
+                <element signature="e#6558#6559#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -181,11 +176,12 @@
         <option value="$PROJECT_DIR$/src/profile/proifle.java" />
         <option value="$PROJECT_DIR$/src/profile/Proifle.java" />
         <option value="$PROJECT_DIR$/src/model/UserAccount.java" />
-        <option value="$PROJECT_DIR$/src/profile/Profile.java" />
-        <option value="$PROJECT_DIR$/src/signup/Signup.java" />
         <option value="$PROJECT_DIR$/src/model/UserAccountManager.java" />
-        <option value="$PROJECT_DIR$/src/login/Login.java" />
+        <option value="$PROJECT_DIR$/src/signup/Signup.java" />
         <option value="$PROJECT_DIR$/src/profile/EditProfile.java" />
+        <option value="$PROJECT_DIR$/src/profile/Profile.java" />
+        <option value="$PROJECT_DIR$/src/profile/ChangePassword.java" />
+        <option value="$PROJECT_DIR$/src/login/Login.java" />
       </list>
     </option>
   </component>
@@ -728,12 +724,12 @@
       <updated>1518814825083</updated>
       <workItem from="1520792760037" duration="12803000" />
       <workItem from="1521059529900" duration="455000" />
-      <workItem from="1521060113261" duration="20700000" />
+      <workItem from="1521060113261" duration="23974000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46684000" />
+    <option name="totallyTimeSpent" value="49958000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -788,14 +784,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/login/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="103" column="5" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="103" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/UserAccountManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -962,21 +950,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/forgotUsername/ForgotUsername.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/javafx-src.zip!/javafx/scene/layout/Border.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="226" column="11" lean-forward="false" selection-start-line="226" selection-start-column="11" selection-end-line="226" selection-end-column="11" />
           <folding>
-            <element signature="e#10000#10001#0" expanded="true" />
-            <element signature="e#10035#10036#0" expanded="true" />
+            <element signature="e#10000#10001#0" expanded="false" />
+            <element signature="e#10035#10036#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -986,18 +966,6 @@
         <state relative-caret-position="425">
           <caret line="360" column="0" lean-forward="false" selection-start-line="360" selection-start-column="0" selection-end-line="360" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/signup/Signup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="361" column="66" lean-forward="true" selection-start-line="361" selection-start-column="66" selection-end-line="361" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7138#7139#0" expanded="true" />
-            <element signature="e#7203#7204#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1020,35 +988,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/login/Login.java">
+    <entry file="file://$PROJECT_DIR$/src/forgotUsername/ForgotUsername.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="213" column="0" lean-forward="true" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/profile/Profile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-516">
-          <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2841#2842#0" expanded="true" />
-            <element signature="e#2909#2910#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/profile/EditProfile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="158" column="42" lean-forward="true" selection-start-line="158" selection-start-column="42" selection-end-line="158" selection-end-column="42" />
+        <state relative-caret-position="300">
+          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6829#6830#0" expanded="true" />
-            <element signature="e#6894#6895#0" expanded="true" />
+            <element signature="e#6831#6832#0" expanded="true" />
+            <element signature="e#6896#6897#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/profile/Profile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="98" column="131" lean-forward="true" selection-start-line="98" selection-start-column="131" selection-end-line="98" selection-end-column="131" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2921#2922#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/signup/Signup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="144" column="8" lean-forward="false" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="42" />
+          <folding>
+            <element signature="e#7138#7139#0" expanded="true" />
+            <element signature="e#7203#7204#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/profile/ChangePassword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="233" column="29" lean-forward="true" selection-start-line="233" selection-start-column="29" selection-end-line="233" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6056#6057#0" expanded="true" />
+            <element signature="e#6121#6122#0" expanded="true" />
+            <element signature="e#6486#6487#0" expanded="true" />
+            <element signature="e#6558#6559#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/login/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2379">
+          <caret line="211" column="10" lean-forward="false" selection-start-line="211" selection-start-column="10" selection-end-line="211" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
