@@ -24,6 +24,7 @@ public class Profile
     private GridPane gridPaneProfile;
     private InputValidator validator;
     private Scene currentScene;
+    private Button editProfileButton;
 
     private Button signUpButton;
 
@@ -104,6 +105,11 @@ public class Profile
     public GridPane getGridPane()
     {
         return gridPaneProfile;
+    }
+    
+    public Button getEditButton() 
+    {
+    	return editProfileButton;
     }
 
 

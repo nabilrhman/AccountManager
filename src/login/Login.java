@@ -54,6 +54,8 @@ public class Login extends Application
     public ForgotUsername forgotUsername;
     public Hyperlink forgotPasswordLink;
     public ForgotPassword forgotPassword;
+    private Button registerButton;
+    private Profile profile;
 
     public static void main(String[] args)
     {
@@ -103,7 +105,7 @@ public class Login extends Application
         hBoxSignInButton.getChildren().add(signinButton);
         grid.add(hBoxSignInButton, 1, 4);
 
-        Button registerButton = new Button("Register");
+        registerButton = new Button("Register");
         HBox hBoxregisterButton = new HBox(10);
         hBoxregisterButton.setAlignment(Pos.BOTTOM_RIGHT);
         hBoxregisterButton.getChildren().add(registerButton);
@@ -146,7 +148,7 @@ public class Login extends Application
                     actionTarget.setFill(Color.GREEN);
                     actionTarget.setText("LOGIN SUCCEEDED");
                     account = accountManager.getUserAccount(userTextField.getText(), passwordField.getText());
-                    Profile profile = new Profile(primaryStage, scene, accountManager, account);
+                    profile = new Profile(primaryStage, scene, accountManager, account);
                     Scene profileScene = new Scene(profile.getGridPane(), SCENE_WIDTH, SCENE_HEIGHT);
                     primaryStage.setScene(profileScene);
                     primaryStage.show();
@@ -234,6 +236,32 @@ public class Login extends Application
         userTextField.setText("nabilr");
         passwordField.setText("ABcd1234");
         signinButton.fire();
+    }
+    
+    public TextField getUserTextField()
+    {
+    	return userTextField;
+    }
+    
+    public PasswordField getPasswordField()
+    {
+    	return passwordField;
+    }
+    
+    public Button getSigninButton()
+    {
+    	return signinButton;
+    }
+    
+    public Button getRegisterButton()
+    {
+    	return registerButton;
+    }
+    
+    public Profile getProfile()
+    {
+    	return profile;
+    
     }
 
 }
