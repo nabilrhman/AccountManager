@@ -165,7 +165,7 @@ public class UserAccount {
     }
 
     public boolean matchBirthDate(LocalDate dateOfBirth) {
-        return birthDate != null && birthDate.equals(this.birthDate);
+        return dateOfBirth != null && dateOfBirth.equals(this.birthDate);
     }
 
 }
