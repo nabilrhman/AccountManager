@@ -8,9 +8,9 @@ import java.util.NoSuchElementException;
 //import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class UserAccountManager {
-	
+
     private ArrayList<UserAccount> userAccounts;
-    
+
     public UserAccountManager() {
         userAccounts = new ArrayList<UserAccount>();
     }
@@ -18,7 +18,7 @@ public class UserAccountManager {
     public void addUserAccount(UserAccount userAccount){
         userAccounts.add(userAccount);
     }
-    
+
     public void addUserAccount(String userName, String password){
     	if (!doesUserNameExist(userName))
     		userAccounts.add(new UserAccount(userName,password));
@@ -33,12 +33,29 @@ public class UserAccountManager {
         if (doesUserNameExist(userName))
             userAccounts.remove(new UserAccount(userName,password));
     }
-    
+
     public boolean doesAccountExist(String userName, String password) {
     	for (UserAccount userAccount: userAccounts)
-    		if(userAccount.isValidCredential(userName, password))    
-    			return true;   
+    		if(userAccount.isValidCredential(userName, password))
+    			return true;
        return false;
+    }
+
+    /**
+     * @author Edgar Sosa
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param birthDate
+     * @return
+     */
+    public boolean doesAccountExist(String firstName, String lastName, String
+            email, LocalDate birthDate) {
+        for (UserAccount userAccount: userAccounts)
+            if (userAccount.isValidCredential(firstName, lastName, email,
+                    birthDate))
+                return true;
+        return false;
     }
 
     /**
@@ -53,20 +70,20 @@ public class UserAccountManager {
                 return true;
         return false;
     }
-    
+
     public boolean doesUserNameExist(String userName){
     	for (UserAccount userAccount: userAccounts)
-    		if(userAccount.matchUserName(userName))   
-    			return true;   
+    		if(userAccount.matchUserName(userName))
+    			return true;
        return false;
     }
-    
+
     public boolean doesEmailExist(String email) {
     	for (UserAccount userAccount: userAccounts)
     		if(userAccount.matchEmail(email))
     			return true;
     	return false;
-    
+
     }
 
     public UserAccount getUserAccount(String userName, String password)
@@ -86,6 +103,16 @@ public class UserAccountManager {
         for(int i = 0; i < userAccounts.size(); i++)
         {
             if (userAccounts.get(i).matchUserName(userName))
+               return userAccounts.get(i);
+            }
+        }
+        throw new NoSuchElementException("Account not found");
+    }
+
+    public UserAccount getUserAccount(String email) {
+        for(int i = 0; i < userAccounts.size(); i++)
+        {
+            if (userAccounts.get(i).matchEmail(email))
             {
                 return userAccounts.get(i);
             }

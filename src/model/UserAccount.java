@@ -144,12 +144,35 @@ public class UserAccount {
 
     /**
      *
+     * @author Edgar Sosa
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param birthDate
+     * @return
+     */
+    public boolean isValidCredential(String firstName, String lastName,
+                                     String email, LocalDate birthDate) {
+        return matchFirstName(firstName) && matchLastName(lastName) &&
+                matchEmail(email) && matchBirthDate(birthDate);
+    }
+
+    /**
+     *
      * @param userName
      * @param birthDate
      * @return
      */
     public boolean isValidCredential(String userName, LocalDate birthDate) {
         return matchUserName(userName) && matchBirthDate(birthDate);
+    }
+
+    public boolean matchFirstName(String firstName) {
+        return firstName != null && firstName.equals(this.firstName);
+    }
+
+    public boolean matchLastName(String lastName) {
+        return lastName != null && lastName.equals(this.lastName);
     }
 
     public boolean matchUserName(String userName) {
@@ -167,5 +190,4 @@ public class UserAccount {
     public boolean matchBirthDate(LocalDate dateOfBirth) {
         return dateOfBirth != null && dateOfBirth.equals(this.birthDate);
     }
-
 }

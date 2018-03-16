@@ -1,5 +1,7 @@
 package forgotUsername;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -14,7 +16,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.UserAccount;
 import model.UserAccountManager;
 import validate.InputValidator;
@@ -23,6 +27,10 @@ import validate.InputValidator;
  * @author Edgar Sosa
  */
 public class ForgotUsername {
+
+    private boolean lockedOut = false;
+    private int failedLoginCount = 0;
+    private UserAccount account;
 
     private UserAccountManager accountManager;
     private GridPane gridPaneForgotUsername;
@@ -56,7 +64,7 @@ public class ForgotUsername {
         gridPaneForgotUsername.setVgap(10);
         gridPaneForgotUsername.setPadding(new Insets(25, 25, 25, 25));
 
-        Text sceneTitle = new Text("SIGN UP");
+        Text sceneTitle = new Text("FORGOT USERNAME");
         gridPaneForgotUsername.add(sceneTitle, 0, 0, 2, 1);
 
         // First name field functionality.
@@ -119,15 +127,40 @@ public class ForgotUsername {
         final Text actionTarget = new Text();
         gridPaneForgotUsername.add(actionTarget, 1, 16);
 
+        // Get username action.
         getUsernameButton.setOnAction(new EventHandler<ActionEvent>() {
-
             @Override
             public void handle(ActionEvent e) {
-                if (isAllInputValid()) {
-                    // TODO: Implement functionality.
+                actionTarget.setFill(Color.FIREBRICK);
+                if (lockedOut) {
+                    actionTarget.setText("TOO MANY FAILED ATTEMPTS\nPlease " +
+                            "wait before trying again");
+                } else if (accountManager.doesAccountExist(firstNameTextField.getText(),
+                        lastNameTextField.getText(), emailTextField.getText()
+                        , birthDatePicker.getValue())) {
+                    account = accountManager.getUserAccount(emailTextField
+                            .getText());
+                    account.getUserName();
+                    actionTarget.setFill(Color.BLUE);
+                    actionTarget.setTextAlignment(TextAlignment.CENTER);
+                    actionTarget.setText("Username: " + account.getUserName());
+                } else {
+                    actionTarget.setFill(Color.RED);
+                    actionTarget.setText("LOGIN FAILED");
+                    if (++failedLoginCount >= 3) {
+                        //reset failedLoginCount
+                        failedLoginCount = 0;
+
+                        //lock out
+                        lockedOut = true;
+
+                        //wait 60 seconds before unlocking
+                        new Timeline(new KeyFrame(
+                                Duration.millis(60000),
+                                ae -> lockedOut = false))
+                                .play();
+                    }
                 }
-
-
             }
         });
 
@@ -140,10 +173,6 @@ public class ForgotUsername {
             }
         });
 
-        /*
-         * TODO: This may be the cause of why the forgot username link
-         * doesn't work
-         */
         addActionToInputControlsWithValidation(firstNameTextField,
                 firstNameValidationText);
         addActionToInputControlsWithValidation(lastNameTextField,
@@ -194,9 +223,9 @@ public class ForgotUsername {
                                     isValidEmail = true;
 
                                 } else {
-                                    validationText.setText("Email is already in use.");
-                                    validationText.setFill(Color.RED);
-                                    isValidEmail = false;
+//                                    validationText.setText("Email is already in use.");
+//                                    validationText.setFill(Color.RED);
+//                                    isValidEmail = false;
                                 }
                             } else {
                                 validationText.setText("Invalid email format");
