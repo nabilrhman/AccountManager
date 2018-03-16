@@ -28,6 +28,19 @@ public class UserAccount {
     }
 
     /**
+     * User account for ForgotPassword
+     *
+     * @param userName - user name
+     * @param dateOfBirth - Birthdate
+     * @author Rogelio Gomez
+     */
+    public UserAccount(String userName, LocalDate dateOfBirth) {
+        this.userName = userName;
+        this.birthDate = dateOfBirth;
+    }
+
+
+    /**
      * Sets user's first name.
      *
      * @param firstName - first name
@@ -129,6 +142,16 @@ public class UserAccount {
         return matchUserName(userName) && matchPassword(password);
     }
 
+    /**
+     *
+     * @param userName
+     * @param birthDate
+     * @return
+     */
+    public boolean isValidCredential(String userName, LocalDate birthDate) {
+        return matchUserName(userName) && matchBirthDate(birthDate);
+    }
+
     public boolean matchUserName(String userName) {
         return userName != null && userName.equals(this.userName);
     }
@@ -138,7 +161,11 @@ public class UserAccount {
     }
     
     public boolean matchEmail(String email) {
-    	return email != null && email.equals(this.email);
+        return email != null && email.equals(this.email);
+    }
+
+    public boolean matchBirthDate(LocalDate dateOfBirth) {
+        return birthDate != null && birthDate.equals(this.birthDate);
     }
 
 }

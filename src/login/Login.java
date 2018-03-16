@@ -29,6 +29,7 @@ import signup.Signup;
 import java.time.LocalDate;
 
 import forgotUsername.ForgotUsername;
+import forgotPassword.ForgotPassword;
 
 /**
  * @author nabilrahman
@@ -205,7 +206,10 @@ public class Login extends Application
         	public void handle(ActionEvent event)
         	{
         	//TODO	
-        		
+                ForgotPassword forgotPassword = new ForgotPassword(primaryStage, scene, accountManager);
+                Scene forgotPasswordScene = new Scene(forgotPassword.getGridPane(), SCENE_WIDTH, SCENE_HEIGHT);
+                primaryStage.setScene(forgotPasswordScene);
+                primaryStage.show();
         	}
         });
 
