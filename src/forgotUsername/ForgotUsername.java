@@ -138,7 +138,7 @@ public class ForgotUsername {
                 } else if (accountManager.doesAccountExist(firstNameTextField.getText(),
                         lastNameTextField.getText(), emailTextField.getText()
                         , birthDatePicker.getValue())) {
-                    account = accountManager.getUserAccount(emailTextField
+                    account = accountManager.getUserAccountEmail(emailTextField
                             .getText());
                     account.getUserName();
                     actionTarget.setFill(Color.BLUE);
