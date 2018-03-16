@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.time.LocalDate;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 
 public class ForgotUsernameGUITests{
