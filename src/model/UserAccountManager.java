@@ -98,6 +98,17 @@ public class UserAccountManager {
         throw new NoSuchElementException("Account not found");
     }
 
+    public UserAccount getUserAccount(String userName)
+    {
+        for(int i = 0; i < userAccounts.size(); i++)
+        {
+            if (userAccounts.get(i).matchUserName(userName))
+               return userAccounts.get(i);
+            }
+        }
+        throw new NoSuchElementException("Account not found");
+    }
+
     public UserAccount getUserAccount(String email) {
         for(int i = 0; i < userAccounts.size(); i++)
         {

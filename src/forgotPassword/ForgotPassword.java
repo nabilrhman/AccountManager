@@ -36,12 +36,11 @@ public class ForgotPassword {
     public TextField newPasswordField;
     private Text newPasswordValidationText;
 
-    public ForgotPassword(Stage mainStage, Scene loginScene, UserAccountManager accountManager, UserAccount account)
+    public ForgotPassword(Stage mainStage, Scene loginScene, UserAccountManager accountManager)
     {
         this.mainStage = mainStage;
         previousScene = loginScene;
         this.accountManager = accountManager;
-        this.account = account;
 
         gridPaneForgotPassword = new GridPane();
         gridPaneForgotPassword.setAlignment(Pos.CENTER);
@@ -116,9 +115,10 @@ public class ForgotPassword {
             {
                 if(accountManager.doesUserNameExist(usernameTextField.getText())){
                     if(accountManager.doesAccountExist(usernameTextField.getText(),birthDatePicker.getValue())){
+                        account = accountManager.getUserAccount(usernameTextField.getText());
                         UserAccount oldAccount = accountManager.getUserAccount(account.getUserName(), account.getPassword());
                         oldAccount.setPassword(newPasswordField.getText());
-                       // goBackButton.fire();
+                        goBackButton.fire();
                     }
 
                 } else {

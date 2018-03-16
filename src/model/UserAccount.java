@@ -187,7 +187,7 @@ public class UserAccount {
         return email != null && email.equals(this.email);
     }
 
-    public boolean matchBirthDate(LocalDate birthDate) {
-        return birthDate != null && birthDate.equals(this.birthDate);
+    public boolean matchBirthDate(LocalDate dateOfBirth) {
+        return dateOfBirth != null && dateOfBirth.equals(this.birthDate);
     }
 }
