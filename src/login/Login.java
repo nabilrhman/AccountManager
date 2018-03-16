@@ -19,15 +19,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.UserAccount;
 import model.UserAccountManager;
+import profile.Profile;
 import signup.Signup;
 
-import java.io.File;
-import java.io.IOException;
 import java.time.LocalDate;
 
 import forgotUsername.ForgotUsername;
@@ -42,10 +40,18 @@ public class Login extends Application
 {
     private final int SCENE_WIDTH = 800;
     private final int SCENE_HEIGHT = 600;
-    boolean lockedOut = false;
+    private boolean lockedOut = false;
     private UserAccountManager accountManager;
     private Scene scene;
     private int failedLoginCount = 0;
+    private UserAccount account;
+
+    private TextField userTextField;
+    private PasswordField passwordField;
+    private Button signinButton;
+    
+    public Hyperlink forgotUsernameLink;
+    public ForgotUsername forgotUsername;
 
     public static void main(String[] args)
     {
@@ -56,6 +62,7 @@ public class Login extends Application
     {
         accountManager = new UserAccountManager();
         accountManager.addUserAccount(new UserAccount("admin", "123456", "admin", "admin", LocalDate.of(1970, 1, 1), "admin@admin.com"));
+        accountManager.addUserAccount(new UserAccount("nabilr", "ABcd1234", "Nabil", "Rahman", LocalDate.of(1970, 1, 1), "nabilr@outlook.com"));
     }
 
     @Override
@@ -79,16 +86,16 @@ public class Login extends Application
         Label userName = new Label("Username:");
         grid.add(userName, 0, 1);
 
-        final TextField userTextField = new TextField();
+        userTextField = new TextField();
         grid.add(userTextField, 1, 1);
 
         Label passwordLabel = new Label("Password:");
         grid.add(passwordLabel, 0, 2);
 
-        final PasswordField passwordBox = new PasswordField();
-        grid.add(passwordBox, 1, 2);
+        passwordField = new PasswordField();
+        grid.add(passwordField, 1, 2);
 
-        Button signinButton = new Button("Sign in");
+        signinButton = new Button("Sign in");
         HBox hBoxSignInButton = new HBox(10);
         hBoxSignInButton.setAlignment(Pos.BOTTOM_RIGHT);
         hBoxSignInButton.getChildren().add(signinButton);
@@ -102,7 +109,7 @@ public class Login extends Application
         grid.add(hBoxregisterButton, 0, 4);
         
         //forgot username link
-        Hyperlink forgotUsernameLink = new Hyperlink();
+        forgotUsernameLink = new Hyperlink();
         forgotUsernameLink.setText("Forgot Username?");
         HBox hBoxForgotUsernameBox = new HBox(10);
         hBoxForgotUsernameBox.setAlignment(Pos.BOTTOM_RIGHT);
@@ -132,10 +139,15 @@ public class Login extends Application
                 {
                     actionTarget.setText("TOO MANY FAILED LOGINS\nPlease wait before trying again");
                 }
-                else if (accountManager.doesAccountExist(userTextField.getText(), passwordBox.getText()))
+                else if (accountManager.doesAccountExist(userTextField.getText(), passwordField.getText()))
                 {
                     actionTarget.setFill(Color.GREEN);
                     actionTarget.setText("LOGIN SUCCEEDED");
+                    account = accountManager.getUserAccount(userTextField.getText(), passwordField.getText());
+                    Profile profile = new Profile(primaryStage, scene, accountManager, account);
+                    Scene profileScene = new Scene(profile.getGridPane(), SCENE_WIDTH, SCENE_HEIGHT);
+                    primaryStage.setScene(profileScene);
+                    primaryStage.show();
                 }
                 else
                 {
@@ -179,7 +191,7 @@ public class Login extends Application
         	public void handle(ActionEvent event)
         	{
         		//TODO
-        		ForgotUsername forgotUsername = new ForgotUsername(primaryStage, scene, accountManager);
+        		forgotUsername = new ForgotUsername(primaryStage, scene, accountManager);
         		Scene forgotUsernameScene = new Scene(forgotUsername.getGridPane(), SCENE_WIDTH, SCENE_HEIGHT);
         		primaryStage.setScene(forgotUsernameScene);
         		primaryStage.show();
@@ -204,6 +216,7 @@ public class Login extends Application
         scene = new Scene(grid, SCENE_WIDTH, SCENE_HEIGHT);
         primaryStage.setScene(scene);
         primaryStage.show();
+        //skipLogin();
     }
 
     /*
@@ -213,5 +226,12 @@ public class Login extends Application
         accountManager.saveJSON(new File("data/user_accounts.json"));
     }
     */
+
+    private void skipLogin()
+    {
+        userTextField.setText("nabilr");
+        passwordField.setText("ABcd1234");
+        signinButton.fire();
+    }
 
 }

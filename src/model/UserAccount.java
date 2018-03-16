@@ -156,7 +156,7 @@ public class UserAccount {
         return userName != null && userName.equals(this.userName);
     }
 
-    private boolean matchPassword(String password) {
+    public boolean matchPassword(String password) {
         return password != null && password.equals(this.password);
     }
     
