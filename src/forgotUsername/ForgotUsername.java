@@ -65,6 +65,7 @@ public class ForgotUsername {
         gridPaneForgotUsername.setPadding(new Insets(25, 25, 25, 25));
 
         Text sceneTitle = new Text("FORGOT USERNAME");
+        sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridPaneForgotUsername.add(sceneTitle, 0, 0, 2, 1);
 
         // First name field functionality.

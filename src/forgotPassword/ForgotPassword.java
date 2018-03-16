@@ -59,6 +59,7 @@ public class ForgotPassword {
         gridPaneForgotPassword.setPadding(new Insets(25, 25, 25, 25));
 
         Text sceneTitle = new Text("FORGOT PASSWORD");
+        sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridPaneForgotPassword.add(sceneTitle, 0, 0, 2, 1);
 
         Label username = new Label("Enter Username:");
