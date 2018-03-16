@@ -29,6 +29,7 @@ public class EditProfile
 {
     private final int SCENE_WIDTH = 800;
     private final int SCENE_HEIGHT = 600;
+    private Scene loginScene;
 
     private Stage mainStage;
     private Scene previousScene;
@@ -57,12 +58,13 @@ public class EditProfile
     private Boolean isValidEmail = true;
     private Boolean isValidBirthDate = true;
 
-    public EditProfile(Stage mainStage, Scene previousScene, UserAccountManager accountManager, UserAccount account)
+    public EditProfile(Stage mainStage, Scene previousScene, Scene loginScene, UserAccountManager accountManager, UserAccount account)
     {
         this.mainStage = mainStage;
         this.previousScene = previousScene;
         this.accountManager = accountManager;
         this.account = account;
+        this.loginScene = loginScene;
 
         gridPaneEditProfile = new GridPane();
         gridPaneEditProfile.setAlignment(Pos.CENTER);
@@ -175,7 +177,10 @@ public class EditProfile
             @Override
             public void handle(ActionEvent e)
             {
-                mainStage.setScene(previousScene);
+                Profile profile = new Profile(mainStage, loginScene, accountManager, account);
+                Scene profileScene = new Scene(profile.getGridPane(), SCENE_WIDTH, SCENE_HEIGHT);
+                mainStage.setScene(profileScene);
+                mainStage.show();
             }
         });
 

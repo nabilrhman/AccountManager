@@ -27,8 +27,10 @@ public class Profile
     private UserAccountManager accountManager;
     private GridPane gridPaneProfile;
     private InputValidator validator;
-    private Scene currentScene;
+    private Scene previousScene;
     private Button editProfileButton;
+    private Button goBackButton;
+
 
     private Button signUpButton;
 
@@ -36,6 +38,7 @@ public class Profile
     {
         this.accountManager = accountManager;
         this.validator = new InputValidator();
+        this.previousScene = previousScene;
 
         gridPaneProfile = new GridPane();
         gridPaneProfile.setAlignment(Pos.CENTER);
@@ -71,7 +74,7 @@ public class Profile
         gridPaneProfile.add(changePasswordButton, 2, 6);
 
         //button to go back
-        Button goBackButton = new Button("Go Back");
+        goBackButton = new Button("Go Back");
         gridPaneProfile.add(goBackButton, 0, 15);
 
         final Text actionTarget = new Text();
@@ -92,7 +95,7 @@ public class Profile
             @Override
             public void handle(ActionEvent event)
             {
-                EditProfile editProfile = new EditProfile(currentStage, currentStage.getScene(), accountManager, account);
+                EditProfile editProfile = new EditProfile(currentStage, currentStage.getScene(), previousScene, accountManager, account);
             }
         });
 
@@ -116,6 +119,9 @@ public class Profile
     	return editProfileButton;
     }
 
-
+    public Button getGoBackButton()
+    {
+        return goBackButton;
+    }
 
 }
