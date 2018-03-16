@@ -67,7 +67,7 @@ public class Profile
         birthDateLabel.setPrefWidth(350);
         gridPaneProfile.add(birthDateLabel, 0, 5);
 
-        Button editProfileButton = new Button("Edit");
+        editProfileButton = new Button("Edit");
         gridPaneProfile.add(editProfileButton, 1, 6);
 
         Button changePasswordButton = new Button("Change password");

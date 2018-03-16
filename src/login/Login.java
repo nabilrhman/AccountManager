@@ -121,7 +121,7 @@ public class Login extends Application
         grid.add(hBoxForgotUsernameBox, 1, 6);
 
         //forgot password link
-        Hyperlink forgotPasswordLink = new Hyperlink();
+        forgotPasswordLink = new Hyperlink();
         forgotPasswordLink.setText("Forgot Password?");
         HBox hBoxForgotPasswordBox = new HBox(10);
         hBoxForgotPasswordBox.setAlignment(Pos.BOTTOM_RIGHT);
