@@ -15,6 +15,10 @@ import model.UserAccount;
 import model.UserAccountManager;
 import validate.InputValidator;
 
+/**
+ * @author nabilRahman
+ * @author marufAhmed
+ */
 public class Profile
 {
     private final int SCENE_WIDTH = 800;

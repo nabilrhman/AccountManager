@@ -19,6 +19,11 @@ import model.UserAccount;
 import model.UserAccountManager;
 import validate.InputValidator;
 
+/**
+ * @author nabilRahman
+ * @author marufAhmed
+ */
+
 public class ChangePassword
 {
     private final int SCENE_WIDTH = 800;
