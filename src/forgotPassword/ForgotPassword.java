@@ -20,25 +20,40 @@ import model.UserAccountManager;
 import validate.InputValidator;
 
 public class ForgotPassword {
-
+    private Stage mainStage;
+    private Scene previousScene;
     private UserAccountManager accountManager;
-    private UserAccount checkAccount;
-    private GridPane gridPaneForgotPassword;
-    private Button resetPasswordButton;
+    private UserAccount account;
     private InputValidator validator;
+    private GridPane gridPaneForgotPassword;
+    public Button resetPasswordButton;
+    public Button goBackButton;
 
-    private TextField usernameTextField;
+    public TextField usernameTextField;
     private Text usernameValidationText;
     private Text birthDateValidationText;
-    private DatePicker birthDatePicker;
-    private TextField newPasswordField;
+    public DatePicker birthDatePicker;
+    public TextField newPasswordField;
     private Text newPasswordValidationText;
 
-    public ForgotPassword(Stage currentStage, Scene loginScene, UserAccountManager accountManager) {
-        this.accountManager=accountManager;
-        validator = new InputValidator();
+    public ForgotPassword(Stage mainStage, Scene loginScene, UserAccountManager accountManager, UserAccount account)
+    {
+        this.mainStage = mainStage;
+        previousScene = loginScene;
+        this.accountManager = accountManager;
+        this.account = account;
 
         gridPaneForgotPassword = new GridPane();
+        gridPaneForgotPassword.setAlignment(Pos.CENTER);
+        gridPaneForgotPassword.setHgap(10);
+        gridPaneForgotPassword.setVgap(10);
+        gridPaneForgotPassword.setPadding(new Insets(25, 25, 25, 25));
+        addControllersToGridPane(gridPaneForgotPassword);
+    }
+
+    private void addControllersToGridPane(GridPane gridPane) {
+        validator = new InputValidator();
+
         gridPaneForgotPassword.setAlignment(Pos.CENTER);
         gridPaneForgotPassword.setHgap(10);
         gridPaneForgotPassword.setVgap(10);
@@ -82,7 +97,7 @@ public class ForgotPassword {
         hBoxSignUpButton.getChildren().add(resetPasswordButton);
         gridPaneForgotPassword.add(hBoxSignUpButton, 1, 7);
 
-        Button goBackButton = new Button("Go Back");
+        goBackButton = new Button("Go Back");
         gridPaneForgotPassword.add(goBackButton, 0, 7);
 
         goBackButton.setOnAction(new EventHandler<ActionEvent>()
@@ -90,7 +105,7 @@ public class ForgotPassword {
             @Override
             public void handle(ActionEvent e)
             {
-                currentStage.setScene(loginScene);
+                mainStage.setScene(previousScene);
             }
         });
 
@@ -99,12 +114,16 @@ public class ForgotPassword {
             @Override
             public void handle(ActionEvent e)
             {
-                checkAccount = new UserAccount(usernameTextField.getText(),birthDatePicker.getValue());
-                if (checkAccount.isValidCredential(usernameTextField.getText(),birthDatePicker.getValue())) {
-                    checkAccount.setPassword(newPasswordField.getText());
-                    accountManager.addUserAccount(checkAccount);
-                    goBackButton.fire();
-                    //TO-DO Remove previous account
+                if(accountManager.doesUserNameExist(usernameTextField.getText())){
+                    if(accountManager.doesAccountExist(usernameTextField.getText(),birthDatePicker.getValue())){
+                        UserAccount oldAccount = accountManager.getUserAccount(account.getUserName(), account.getPassword());
+                        oldAccount.setPassword(newPasswordField.getText());
+                        goBackButton.fire();
+                    }
+
+                } else {
+                    usernameValidationText.setText("Username does not exist");
+                    usernameValidationText.setFill(Color.RED);
                 }
             }
         });
