@@ -118,7 +118,7 @@ public class ForgotPassword {
                     if(accountManager.doesAccountExist(usernameTextField.getText(),birthDatePicker.getValue())){
                         UserAccount oldAccount = accountManager.getUserAccount(account.getUserName(), account.getPassword());
                         oldAccount.setPassword(newPasswordField.getText());
-                        goBackButton.fire();
+                       // goBackButton.fire();
                     }
 
                 } else {
