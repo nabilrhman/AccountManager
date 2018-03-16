@@ -52,6 +52,8 @@ public class Login extends Application
     
     public Hyperlink forgotUsernameLink;
     public ForgotUsername forgotUsername;
+    public Hyperlink forgotPasswordLink;
+    public ForgotPassword forgotPassword;
 
     public static void main(String[] args)
     {
@@ -206,7 +208,7 @@ public class Login extends Application
         	public void handle(ActionEvent event)
         	{
         	//TODO	
-                ForgotPassword forgotPassword = new ForgotPassword(primaryStage, scene, accountManager);
+                ForgotPassword forgotPassword = new ForgotPassword(primaryStage, scene, accountManager, account);
                 Scene forgotPasswordScene = new Scene(forgotPassword.getGridPane(), SCENE_WIDTH, SCENE_HEIGHT);
                 primaryStage.setScene(forgotPasswordScene);
                 primaryStage.show();
